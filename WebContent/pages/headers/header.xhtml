@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="utf-8"/>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/bootstrap-theme.min.css" />
+	
+	<!-- style -->
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
+</h:head> 
+<body> 
+
+<header>
+	<h:form>  
+	    <p:menubar>
+	       	<p:menuitem value="Vitrine Gastronômica" url="#"/>
+		    <p:menuitem value="Home" url="#" icon="fa fa-home" class="btn btn-md"/>
+	        <p:menuitem value="Anunciantes" url="#" icon="fa fa-bullhorn" class="btn btn-md"/>
+	        <p:menuitem value="Produtos" url="#" icon="fa fa-cutlery" class="btn btn-md"/>
+	        <f:facet name="options">
+	            <p:commandButton type="button" value="Login" icon="fa fa-user" class="btn btn-primary btn-md" />
+	        	<p:commandButton type="button" value="Cadastre-se" icon="fa fa-user-plus" class="btn btn-primary btn-md"/>
+	        </f:facet>
+	    </p:menubar>
+	</h:form>
+</header>
+
+</body> 
+</html>
