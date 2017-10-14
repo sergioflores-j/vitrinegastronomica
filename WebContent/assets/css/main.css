@@ -1,0 +1,230 @@
+html,
+body {
+  background: #EEEEEE !important;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  padding-bottom: 10px !important;
+  line-height: 1.5em !important;
+}
+
+.container {
+  max-width: 950px;
+}
+
+.hide-mobile {
+  @media screen and (max-width: 420px) {
+    display: none;
+  }
+}
+
+.disabled {
+  opacity: 0.3 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.no-padding{
+  padding: 0px !important;
+}
+
+
+/*COLORS BACKGROUND*/
+
+
+.color-primary {
+  background: #000 !important;
+}
+
+.color-secondary {
+  background: #777777 !important;
+}
+
+
+.tag{
+  font-size: 0.8em;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  margin: 2px;
+  text-align: center;
+  float: left;
+}
+
+/*BUTTON*/
+
+.btn {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  border-radius: 5px !important;
+  border: none !important;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-default,
+.btn-link {
+  min-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white !important;
+  &:hover {
+    color: white !important;
+  }
+}
+
+.btn-lg {
+  height: 54px;
+  font-size: 14px !important;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+}
+
+.btn-md {
+  padding: 10px !important;
+  margin-left: 5px !important;
+}
+
+.btn-sm {
+  height: 27px;
+  line-height: 1.0px !important;
+  font-size: 11px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.btn-xs {
+  height: 23px;
+  line-height: 1.0px !important;
+  font-size: 10px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.btn-primary {
+  background: #e06b04 !important; 
+  opacity: 0.9;
+}
+
+.btn-primary:hover {
+    opacity: 1.0;
+}
+
+.btn-secondary {
+  background: #ff993f !important;
+  opacity: 0.9;
+}
+
+.btn-secondary:hover {
+  opacity: 1.0;
+}
+
+.btn-default {
+  background: #999999 !important;
+  padding: 13px !important;
+  opacity: 0.9;
+  color: #000 !important;
+}
+
+.btn-default:hover {
+    opacity: 1.0;
+}
+
+
+/*TEXT*/
+
+.text-300 {
+  font-weight: 300 !important;
+}
+
+.text-500 {
+  font-weight: 500 !important;
+}
+
+
+/*TEXT COLOR*/
+
+.text-primary {
+ color: #4465AD !important;
+}
+
+.text-secondary {
+  color: #777777 !important;
+} 
+
+.text-white {
+  color: white;
+}
+
+.text-black {
+  color: black;
+}
+
+.text-blue {
+  color: #4465AD !important;
+}
+
+.text-muted {
+  color: #999 !important;
+  font-weight: 300 !important;
+}
+
+
+/*H*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  color: #3c4858 !important;
+  font-weight: 300 !important;
+}
+ 
+
+/*P*/
+
+p {
+  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  margin-top: 5px !important;
+  line-height: 1.5em !important;
+  font-size: 1em !important;
+}
+
+
+
+/*FORM*/
+
+.form-group {
+  margin-top: 10px;
+}
+.form-group label {
+  font-size: 14px !important;
+  line-height: 1.42857;
+  color: #aaa;
+  font-weight: 400 !important;
+}
+
+.form-group input {
+  background: #f7f7f7;
+}
+
+button {
+  text-transform: uppercase !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+
+button i {
+  font-size: 14px !important;
+}
+
+/* JSF MENUBAR */
+.ui-menu .ui-menuitem-link {
+	padding: 13px !important;
+}
