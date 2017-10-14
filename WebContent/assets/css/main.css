@@ -53,10 +53,6 @@ body {
 
 /*BUTTON*/
 
-.ui-menu .ui-menuitem-link {
-	padding: 13px !important;
-}
-
 .btn {
   font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
   border-radius: 5px !important;
@@ -206,22 +202,29 @@ p {
 
 .form-group {
   margin-top: 10px;
-  label {
-    font-size: 14px !important;
-    line-height: 1.42857;
-    color: #aaa;
-    font-weight: 400 !important;
-  }
-  input {
-    background: #f7f7f7;
-  }
+}
+.form-group label {
+  font-size: 14px !important;
+  line-height: 1.42857;
+  color: #aaa;
+  font-weight: 400 !important;
+}
+
+.form-group input {
+  background: #f7f7f7;
 }
 
 button {
   text-transform: uppercase !important;
   font-size: 12px !important;
   font-weight: 400 !important;
-  i {
-    font-size: 14px !important;
-  }
+}
+
+button i {
+  font-size: 14px !important;
+}
+
+/* JSF MENUBAR */
+.ui-menu .ui-menuitem-link {
+	padding: 13px !important;
 }
