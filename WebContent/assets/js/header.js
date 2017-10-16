@@ -28,7 +28,7 @@ function menuToggle() {
 	
 	$(window).resize(function(){ 
 		let windowWidth = $(window).width();
-		if(windowWidth <= 768 && cross.is(':hidden')){
+		if(windowWidth <= 730 && cross.is(':hidden')){
 			
 			if(!isLogged){
 				login.hide();
@@ -39,7 +39,7 @@ function menuToggle() {
 			hamburger.show();
 			cross.hide();
 			
-		} else if(windowWidth >= 769) {
+		} else if(windowWidth >= 731) {
 			
 			if(!isLogged){
 				login.show();
@@ -66,14 +66,12 @@ function menuToggle() {
     });
     
     cross.click(function () {
-    	
-    	if(!isLogged){
-			login.hide();
-			register.hide();
-		} else logout.hide();
-    	
         menu.slideToggle('slow', function () {
             cross.hide();
+            if(!isLogged){
+    			login.hide();
+    			register.hide();
+    		} else logout.hide();
             hamburger.show();
         })
     });
