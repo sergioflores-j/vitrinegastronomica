@@ -5,15 +5,15 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"> 
-<h:head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta charset="utf-8"/>
-	<title>Vitrine Gastronômica</title>
-	
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<!-- Style -->
-	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
+	<h:head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="utf-8"/>
+		<title>Vitrine Gastronômica</title>
+		
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+		<!-- Style -->
+		<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
 </h:head>
 
 <body>
@@ -21,6 +21,11 @@
 <ui:insert name="header">
 	<ui:include src="/templates/headers/header.xhtml"/>
 </ui:insert>
+
+<div class="ui-g-12 ui-md-6 ui-lg-3" id="banner"><img src="images/VG1.png" alt="vitrinegastronomica"/></div>
+	 
+<p id="teste">Divulgue seus produtos sem custo</p>
+<p>Simples, fácil e rápido ... Cadastre-se!</p>
 
 <ui:insert name="footer">
 	<ui:include src="/templates/footers/footer.xhtml" />
