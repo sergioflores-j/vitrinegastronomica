@@ -28,16 +28,20 @@ body {
   padding: 0px !important;
 }
 
+.centered {
+  text-align: center;
+}
+
 
 /*COLORS BACKGROUND*/
 
 
 .color-primary {
-  background: #000 !important;
+  background: #e06b04 !important;
 }
 
 .color-secondary {
-  background: #777777 !important;
+  background: #ff993f !important;
 }
 
 
@@ -144,6 +148,10 @@ body {
   font-weight: 500 !important;
 }
 
+.text-700 {
+  font-weight: 700 !important;
+}
+
 
 /*TEXT COLOR*/
 
@@ -156,7 +164,7 @@ body {
 } 
 
 .text-white {
-  color: white;
+  color: white !important;
 }
 
 .text-black {
@@ -203,11 +211,13 @@ p {
 .form-group {
   margin-top: 10px;
 }
+
 .form-group label {
   font-size: 14px !important;
   line-height: 1.42857;
-  color: #aaa;
-  font-weight: 400 !important;
+  color: #000;
+  font-weight: 800 !important;
+  padding: 5px;
 }
 
 .form-group input {
@@ -228,3 +238,34 @@ button i {
 .ui-menu .ui-menuitem-link {
  padding: 13px !important;
 }
+
+
+/* FOOTER */
+footer{
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid;
+  border-color: #b6b6b6;
+  border-radius: 5px;
+}
+
+.copyright{
+  padding: 13px;
+  text-align: center;
+}
+
+/* LOGIN PAGE */
+.login-header {
+  margin: 0;
+  background-color: #e06b04 !important;
+  padding: 0 !important;
+  color: #fff !important;
+  border: 1px solid black;
+}
+.login-header > h3, h4 {
+  color: #fff !important;
+}
+
+

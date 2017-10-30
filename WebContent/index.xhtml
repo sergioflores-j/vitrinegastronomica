@@ -12,19 +12,23 @@
 	
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<!-- Jquery -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<!-- Style -->
 	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
 </h:head>
 
 <body>
 
-<ui:include src="/templates/headers/header.xhtml"/>
+<ui:insert name="header">
+	<ui:include src="/templates/headers/header.xhtml"/>
+</ui:insert>
 
-<ui:include src="/templates/footers/footer.xhtml" />
+<ui:insert name="footer">
+	<ui:include src="/templates/footers/footer.xhtml" />
+</ui:insert>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+<script src="#{request.contextPath}/assets/js/header.js"></script> 
 
 </body>
 </html>

@@ -5,31 +5,48 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8"/>
+	<title>Vitrine Gastronômica - Login</title>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<!-- Style -->
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
 </h:head> 
-<body> 
-<h:form>
-   <p:panel>
-       <p:messages autoUpdate="true"/>
-       
-       <h:panelGrid id="grid" columns="4" cellpadding="5" layout="grid">
-       		
-           <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>                    
-           <p:inputText id="email" class="input-login" value="#{loginView.email}" validatorMessage="Digite um email válido.">
-               <f:validateRegex pattern="^[a-zA-Z]+$" />
-           </p:inputText>
-           <p:message for="email" />
-           <h:outputText value="#{loginView.email}" />
-           
-           <h:outputLabel for="password" value="Senha:" style="font-weight:bold"/>                    
-           <p:inputText id="password" value="#{loginView.password}" required="true" label="Senha"/>
-           <p:message for="password" />
-           <h:outputText value="#{loginView.password}" />
-           
-       </h:panelGrid>
-
-       <p:commandButton class="btn-login" value="Login" update="grid" icon="fa fa-sign-in" validateClient="true"/>
-   </p:panel>
-</h:form>
- 
+<body>
+	<p:button type="button" value="Voltar" outcome="/index.xhtml" icon="fa fa-arrow-left" class="btn btn-primary btn-xs" />
+	<div class="container">
+		<div class="row centered">
+			<div class="login-header">
+				<h3>Vitrine Gastronômica</h3>
+				<h4>Área do Anunciante</h4>
+			</div>
+			<h:form>
+				<p:panel id="grid" layout="grid">
+			       	<p:messages autoUpdate="true"/>
+		       		<div class="form-group">
+		       			<h:outputLabel for="email" value="Email:" styleClass="text-700"/>
+						<p:inputText id="email" value="#{loginView.email}" required="true" requiredMessage="O campo Email é obrigatório." label="Email"/>
+		       		</div>
+					<div class="form-group">
+						<h:outputLabel for="password" value="Senha:" styleClass="text-700"/>
+						<p:password id="password" value="#{loginView.password}" required="true" requiredMessage="O campo Senha é obrigatório." label="Senha"/>
+					</div>
+					<div class="form-group">
+						<p>
+							<strong><p:link outcome="/user/newPassword.xhtml" value="Esqueci minha senha"/></strong>
+						</p>
+						<p>
+							Ainda não é um anunciante? <strong><p:link outcome="/user/register.xhtml" value="Cadastre-se" /></strong>
+						</p>
+					</div>
+					<div class="form-group">
+						<p:commandButton class="btn-primary" value="Login" update="grid" icon="fa fa-sign-in" actionListener="#{loginView.login}" validateClient="true"/>
+					</div>
+				</p:panel>
+			</h:form>
+		</div>
+	</div>
 </body> 
 </html>
