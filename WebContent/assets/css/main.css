@@ -1,11 +1,12 @@
 html,
 body {
-  background: #EEEEEE !important;
+  background: #d7d7d7 !important;
   font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
   padding-bottom: 10px !important;
   line-height: 1.5em !important;
+  height: 100%;
 }
-
+/*#f5c67e*/
 .container {
   max-width: 950px;
 }
@@ -227,4 +228,85 @@ button i {
 /* JSF MENUBAR */
 .ui-menu .ui-menuitem-link {
  padding: 13px !important;
+}
+
+/* Footer */
+.footer{
+	position: absolute;
+	bottom: 1px;
+  	width: 100%;
+	background-color: #FFFFFF;
+  	/*color: #aaa;*/
+  	border: 1px solid;
+  	border-color: #b6b6b6;
+  	border-radius: 5px;
+}
+
+.copyright{
+	padding: 13px;
+	text-align: center;
+}
+
+/* Banner */
+#banner{
+	width: 100%;
+	margin-top: 3%;
+	height: 600px;
+	float: inherit;
+}
+
+#banner img{
+	width: 100%;
+	height: 100%;
+}
+
+@font-face{
+	font-family: Intro;
+	src: local('Intro'), url('../fonts/Intro.otf') format ('opentype');
+}
+
+/* Register */
+.conf{
+	display: table !important;
+	width: 100%;
+}
+/* align tables */
+table > tbody > tr> td.grid{
+	vertical-align: top !important;
+}
+
+.gap1{ 
+	padding-left: 25px;
+	width: 60px;
+	font-weight: bold; 
+}
+
+
+.gap2{
+	vertical-align: top !important;
+	padding-left: 5px;
+	width: auto;
+}
+
+.align-right{
+	float: right;
+	margin: 5px;
+}
+
+/* class button next and back */
+.ui-button.ui-state-default{
+	font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  	border-radius: 5px !important;
+  	border: none !important;
+  	background: #e06b04 !important; 
+  	opacity: 0.9;
+  line-height: 1.0px !important;
+  font-size: 10px !important;
+  padding: 10px !important;
+}
+
+/* class register flaps */
+.ui-state-highlight{
+	background: #e06b04 !important;
+	border-color: #e06b04 !important;
 }

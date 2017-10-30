@@ -4,32 +4,32 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-<h:head>
-</h:head> 
-<body> 
-<h:form>
-   <p:panel>
-       <p:messages autoUpdate="true"/>
-       
-       <h:panelGrid id="grid" columns="4" cellpadding="5" layout="grid">
-       		
-           <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>                    
-           <p:inputText id="email" class="input-login" value="#{loginView.email}" validatorMessage="Digite um email válido.">
-               <f:validateRegex pattern="^[a-zA-Z]+$" />
-           </p:inputText>
-           <p:message for="email" />
-           <h:outputText value="#{loginView.email}" />
-           
-           <h:outputLabel for="password" value="Senha:" style="font-weight:bold"/>                    
-           <p:inputText id="password" value="#{loginView.password}" required="true" label="Senha"/>
-           <p:message for="password" />
-           <h:outputText value="#{loginView.password}" />
-           
-       </h:panelGrid>
-
-       <p:commandButton class="btn-login" value="Login" update="grid" icon="fa fa-sign-in" validateClient="true"/>
-   </p:panel>
-</h:form>
- 
-</body> 
+	<h:head>
+	</h:head> 
+		<body>
+		<h:form>
+		   <p:panel>
+		       <p:messages autoUpdate="true"/>
+		       
+		       <h:panelGrid id="grid" columns="4" cellpadding="5" layout="grid">
+		       		
+		           <h:outputLabel for="email" value="Email:" style="font-weight:bold"/>                    
+		           <p:inputText id="email" class="input-login" value="#{loginView.email}" validatorMessage="Digite um email válido.">
+		               <f:validateRegex pattern="^[a-zA-Z]+$" />
+		           </p:inputText>
+		           <p:message for="email" />
+		           <h:outputText value="#{loginView.email}" />
+		           
+		           <h:outputLabel for="password" value="Senha:" style="font-weight:bold"/>                    
+		           <p:inputText id="password" value="#{loginView.password}" required="true" label="Senha"/>
+		           <p:message for="password" />
+		           <h:outputText value="#{loginView.password}" />
+		           
+		       </h:panelGrid>
+		
+		       <p:commandButton class="btn-login" value="Login" update="grid" icon="fa fa-sign-in" validateClient="true"/>
+		   </p:panel>
+		</h:form>
+		 
+	</body> 
 </html>
