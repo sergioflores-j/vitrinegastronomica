@@ -2,9 +2,9 @@ html,
 body {
   background: #EEEEEE !important;
   font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
-  padding-bottom: 10px !important;
+  padding: 0px !important;
   line-height: 1.5em !important;
-  height: 100%;
+  height: 100% !important;
 }
 
 .container {
@@ -112,7 +112,7 @@ body {
 }
 
 .btn-primary:hover {
-    opacity: 1.0;
+  opacity: 1.0;
 }
 
 .btn-secondary {
@@ -132,7 +132,7 @@ body {
 }
 
 .btn-default:hover {
-    opacity: 1.0;
+  opacity: 1.0;
 }
 
 
@@ -234,14 +234,12 @@ button i {
 
 /* JSF MENUBAR */
 .ui-menu .ui-menuitem-link {
- padding: 13px !important;
+  padding: 13px !important;
 }
 
 /* FOOTER */
 footer{
-  position: absolute;
   bottom: 1px;
-  width: 100%;
   background-color: #FFFFFF;
   border: 1px solid;
   border-color: #b6b6b6;
@@ -265,58 +263,91 @@ footer{
   color: #fff !important;
 }
 
-/* Banner */
+/* Index */
 #banner{
-	width: 100%;
-	margin-top: 3%;
-	height: 600px;
-	float: inherit;
+  width: 100%;
+  height: 600px;
+  float: inherit;
 }
 
 #banner img{
-	width: 100%;
-	height: 100%;
+  width: 100% !important;
+  height: 100%;
 }
 
-@font-face{
-	font-family: Intro;
-	src: local('Intro'), url('../fonts/Intro.otf') format ('opentype');
+@font-face {
+  font-family: 'intro_light_capsregular';
+  src: url('../fonts/intro-light-caps-webfont.woff2') format('woff2'),
+       url('../fonts/intro-light-caps-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: 'ralewaylight';
+  src: url('../fonts/raleway-light-webfont.woff2') format('woff2'),
+       url('../fonts/raleway-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#blazon{
+  margin-top: 0px !important;
+  text-align: center;
+  font-family: intro_light_capsregular !important;
+  color: #800000;
+  font-size: 50px !important;
+  width: 100% !important;
+  height: 15%;
+  background: #e99d52;
+}
+
+#slogan{
+  margin-top: -53px !important;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-family: ralewaylight !important;
+  font-weight: 800;
+  font-size: 20px !important;
+  text-align: center;
+  background: #FFF;
+}
+
 
 /* Register */
 .conf{
-	display: table !important;
-	width: 100%;
+  display: table !important;
+  width: 100%;
 }
 /* align tables */
 table > tbody > tr> td.grid{
-	vertical-align: top !important;
+  vertical-align: top !important;
 }
 
 .gap1{ 
-	padding-left: 25px;
-	width: 60px;
-	font-weight: bold; 
+  padding-left: 25px;
+  width: 60px;
+  font-weight: bold; 
 }
 
 .gap2{
-	vertical-align: top !important;
-	padding-left: 5px;
-	width: auto;
+  vertical-align: top !important;
+  padding-left: 5px;
+  width: auto;
 }
 
 .align-right{
-	float: right;
-	margin: 5px;
+  float: right;
+  margin: 5px;
 }
 
 /* class button next and back */
 .ui-button.ui-state-default{
-	font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
-  	border-radius: 5px !important;
-  	border: none !important;
-  	background: #e06b04 !important; 
-  	opacity: 0.9;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+  border-radius: 5px !important;
+  border: none !important;
+  background: #e06b04 !important; 
+  opacity: 0.9;
   line-height: 1.0px !important;
   font-size: 10px !important;
   padding: 10px !important;
@@ -324,6 +355,6 @@ table > tbody > tr> td.grid{
 
 /* class register flaps */
 .ui-state-highlight{
-	background: #e06b04 !important;
-	border-color: #e06b04 !important;
+  background: #e06b04 !important;
+  border-color: #e06b04 !important;
 }

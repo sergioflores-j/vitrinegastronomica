@@ -14,26 +14,25 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 		<!-- Style -->
 		<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
-</h:head>
-
-<body>
-
-<ui:insert name="header">
-	<ui:include src="/templates/headers/header.xhtml"/>
-</ui:insert>
-
-<div class="ui-g-12 ui-md-6 ui-lg-3" id="banner"><img src="images/VG1.png" alt="vitrinegastronomica"/></div>
-	 
-<p id="teste">Divulgue seus produtos sem custo</p>
-<p>Simples, fácil e rápido ... Cadastre-se!</p>
-
-<ui:insert name="footer">
-	<ui:include src="/templates/footers/footer.xhtml" />
-</ui:insert>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
-<script src="#{request.contextPath}/assets/js/header.js"></script> 
-
-</body>
+	</h:head>
+	
+	<body>
+		<ui:insert name="header">
+			<ui:include src="/templates/headers/header.xhtml"/>
+		</ui:insert>
+		
+		<div class="ui-g-12 ui-md-6 ui-lg-3" id="banner"><img src="images/VG1.png" alt="vitrinegastronomica"/></div>
+			 
+		<p id="blazon">Divulgue seus produtos sem custo</p>
+		<p id="slogan">Simples, fácil e rápido ... Cadastre-se!</p>
+		
+		<ui:insert name="footer">
+			<ui:include src="/templates/footers/footer.xhtml" />
+		</ui:insert>
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+		<script src="#{request.contextPath}/assets/js/header.js"></script> 
+		
+	</body>
 </html>
