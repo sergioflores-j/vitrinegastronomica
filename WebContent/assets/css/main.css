@@ -29,6 +29,10 @@ body {
   padding: 0px !important;
 }
 
+.no-margin{
+  margin: 0px !important;	
+}
+
 .centered {
   text-align: center;
 }
@@ -239,9 +243,6 @@ button i {
 
 /* FOOTER */
 footer{
-  position: absolute;
-  bottom: 1px;
-  width: 100%;
   background-color: #FFFFFF;
   border: 1px solid;
   border-color: #b6b6b6;

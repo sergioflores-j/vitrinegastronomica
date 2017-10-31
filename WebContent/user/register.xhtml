@@ -15,135 +15,141 @@
 	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
 </h:head> 
 <body> 
-	<ui:include src="/templates/headers/header.xhtml"/>
-	<ui:include src="/templates/footers/footer.xhtml" />
+	<ui:insert name="header">
+		<ui:include src="/templates/headers/header.xhtml"/>
+	</ui:insert>
 	
-	<br/><!-- <h:panelGrid columns="2" columnClasses="label, value"> || labe="nome que vai aparecer no erro"-->
-	
-	<h:form>
-		<p:growl id="growl" sticky="true" showDetail="true"/>
-	 
-	    <p:wizard flowListener="#{userWizard.onFlowProcess}" backLabel="Voltar" nextLabel="Avançar">
-	    
-	        <p:tab id="personal" title="Pessoal">
-	            <p:panel header="Dados Pessoais">
-	                <p:messages />
-	                <h:panelGrid columns="2">
-	                    <h:outputText value="Nome do Anunciante: *" />
-	                    <p:inputText value="#{userWizard.user.lastname}" required="true" label="Nome"/>
-	 
-	                    <h:outputText value="Descrição: " />
-	                    <p:inputText value="#{userWizard.user.firstname}" />
-	                </h:panelGrid>
-	            </p:panel>
-	        </p:tab>
-	        
-	        <p:tab id="login" title="Login">
-	            <p:panel header="Dados de Login">
-	                <p:messages />
-	                <h:panelGrid columns="2">
-	                    <h:outputText value="Email: *" />
-	                    <p:inputText value="#{userWizard.user.postalCode}" required="true" label="Email"/>
-	 
-	                    <h:outputText value="Senha: *" />
-	                    <p:inputText value="#{userWizard.user.age}" required="true" label="Senha"/>
-	                </h:panelGrid>
-	            </p:panel>
-	        </p:tab>
-	 
-	        <p:tab id="address" title="Endereço">
-	            <p:panel header="Detalhes do Endereço">
-	                <p:messages />
-	                <h:panelGrid columns="2" >
-	                	<h:outputText value="País: " />
-	                    <p:inputText value="#{userWizard.user.street}" />
-	                	
-	                    <h:outputText value="Estado: " />
-	                    <p:inputText value="#{userWizard.user.street}" />
-	 
-	                    <h:outputText value="Cidade: " />
-	                    <p:inputText value="#{userWizard.user.postalCode}" />
-	 
-	                    <h:outputText value="Bairro: " />
-	                    <p:inputText value="#{userWizard.user.city}" />
-	                    
-	                    <h:outputText value="Rua: " />
-	                    <p:inputText value="#{userWizard.user.city}" />
-	                </h:panelGrid>
-	            </p:panel>
-	        </p:tab>
-	 
-	        <p:tab id="contact" title="Contato">
-	            <p:panel header="Informações de contato">
-	                <p:messages />
-	                <h:panelGrid columns="2">
-	                    <h:outputText value="Email: *" />
-	                    <p:inputText value="#{userWizard.user.email}" required="true" label="Email"/>
-	 
-	                    <h:outputText value="Celular: *" />
-	                    <p:inputText value="#{userWizard.user.phone}" required="true" label="Celular"/>
-	 
-	                    <h:outputText value="Telefone: " />
-	                    <p:inputText value="#{userWizard.user.info}"/>
-	                </h:panelGrid>
-	            </p:panel>
-	        </p:tab>
-	 
-	        <p:tab id="confirm" title="Confirmação">
-	            <p:panel header="Confirme as informações" class="conf">
-	                <h:panelGrid id="confirmation" columns="4" columnClasses="grid,grid,grid,grid">
-	                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
-	                    	<h:outputText value="Nome: " />
-		                    <h:outputText  value="#{userWizard.user.lastname}" styleClass="outputLabel"/>
-		 
-		                    <h:outputText value="Descrição: " />
-		                    <h:outputText  value="#{userWizard.user.age}" styleClass="outputLabel"/>
-	                    </h:panelGrid>
-	                    
-		                <h:panelGrid columns="2" columnClasses="gap1, gap2">
-		                    <h:outputText value="Email: " />
-		                    <h:outputText  value="#{userWizard.user.postalCode}" styleClass="outputLabel"/>
-		 
-		                    <h:outputText value="Senha: " />
-		                    <h:outputText  value="#{userWizard.user.age}" styleClass="outputLabel"/>
-		                </h:panelGrid>
-	 
-	 
-	                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
-		                	<h:outputText value="País: " />
-		                    <h:outputText  value="#{userWizard.user.street}" styleClass="outputLabel"/>
-		                	
-		                    <h:outputText value="Estado: " />
-		                    <h:outputText  value="#{userWizard.user.street}" styleClass="outputLabel"/>
-		 
-		                    <h:outputText value="Cidade: " />
-		                    <h:outputText  value="#{userWizard.user.postalCode}" styleClass="outputLabel"/>
-		 
-		                    <h:outputText value="Bairro: " />
-		                    <h:outputText  value="#{userWizard.user.city}" styleClass="outputLabel"/>
-		                    
-		                    <h:outputText value="Rua: " />
-		                    <h:outputText  value="#{userWizard.user.city}" styleClass="outputLabel"/>
-		                </h:panelGrid>
-	 
-	 
-	                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
-		                    <h:outputText value="Email: " />
-			                    <h:outputText  value="#{userWizard.user.email}" styleClass="outputLabel"/>
-		 
-		                    <h:outputText value="Celular: " />
-		                    <h:outputText  value="#{userWizard.user.phone}" styleClass="outputLabel"/>
-		 
-		                    <h:outputText value="Telefone: " />
-		                    <h:outputText  value="#{userWizard.user.info}" styleClass="outputLabel"/>
-		                </h:panelGrid>
-	                </h:panelGrid>
-	 
-	                <p:commandButton value="Enviar" actionListener="#{userWizard.save}" update="growl" process="@this" class="btn btn-primary align-right"/>
-	            </p:panel>
-	        </p:tab>
-	    </p:wizard>
-    </h:form>
+	<div class="container-fluid" style="margin-top: 20px !important">
+		<div class="row">
+			<h:form>
+				<p:growl id="growl" sticky="true" showDetail="true"/>
+			 
+			    <p:wizard flowListener="#{userWizard.onFlowProcess}" backLabel="Voltar" nextLabel="Avançar">
+			    
+			        <p:tab id="personal" title="Pessoal">
+			            <p:panel header="Dados Pessoais">
+			                <p:messages />
+			                <h:panelGrid columns="2">
+			                    <h:outputText value="Nome do Anunciante: *" />
+			                    <p:inputText value="#{userWizard.user.lastname}" required="true" label="Nome"/>
+			 
+			                    <h:outputText value="Descrição: " />
+			                    <p:inputText value="#{userWizard.user.firstname}" />
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:tab>
+			        
+			        <p:tab id="login" title="Login">
+			            <p:panel header="Dados de Login">
+			                <p:messages />
+			                <h:panelGrid columns="2">
+			                    <h:outputText value="Email: *" />
+			                    <p:inputText value="#{userWizard.user.postalCode}" required="true" label="Email"/>
+			 
+			                    <h:outputText value="Senha: *" />
+			                    <p:inputText value="#{userWizard.user.age}" required="true" label="Senha"/>
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:tab>
+			 
+			        <p:tab id="address" title="Endereço">
+			            <p:panel header="Detalhes do Endereço">
+			                <p:messages />
+			                <h:panelGrid columns="2" >
+			                	<h:outputText value="País: " />
+			                    <p:inputText value="#{userWizard.user.street}" />
+			                	
+			                    <h:outputText value="Estado: " />
+			                    <p:inputText value="#{userWizard.user.street}" />
+			 
+			                    <h:outputText value="Cidade: " />
+			                    <p:inputText value="#{userWizard.user.postalCode}" />
+			 
+			                    <h:outputText value="Bairro: " />
+			                    <p:inputText value="#{userWizard.user.city}" />
+			                    
+			                    <h:outputText value="Rua: " />
+			                    <p:inputText value="#{userWizard.user.city}" />
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:tab>
+			 
+			        <p:tab id="contact" title="Contato">
+			            <p:panel header="Informações de contato">
+			                <p:messages />
+			                <h:panelGrid columns="2">
+			                    <h:outputText value="Email: *" />
+			                    <p:inputText value="#{userWizard.user.email}" required="true" label="Email"/>
+			 
+			                    <h:outputText value="Celular: *" />
+			                    <p:inputText value="#{userWizard.user.phone}" required="true" label="Celular"/>
+			 
+			                    <h:outputText value="Telefone: " />
+			                    <p:inputText value="#{userWizard.user.info}"/>
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:tab>
+			 
+			        <p:tab id="confirm" title="Confirmação">
+			            <p:panel header="Confirme as informações" class="conf">
+			                <h:panelGrid id="confirmation" columns="4" columnClasses="grid,grid,grid,grid">
+			                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
+			                    	<h:outputText value="Nome: " />
+				                    <h:outputText  value="#{userWizard.user.lastname}" styleClass="outputLabel"/>
+				 
+				                    <h:outputText value="Descrição: " />
+				                    <h:outputText  value="#{userWizard.user.age}" styleClass="outputLabel"/>
+			                    </h:panelGrid>
+			                    
+				                <h:panelGrid columns="2" columnClasses="gap1, gap2">
+				                    <h:outputText value="Email: " />
+				                    <h:outputText  value="#{userWizard.user.postalCode}" styleClass="outputLabel"/>
+				 
+				                    <h:outputText value="Senha: " />
+				                    <h:outputText  value="#{userWizard.user.age}" styleClass="outputLabel"/>
+				                </h:panelGrid>
+			 
+			 
+			                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
+				                	<h:outputText value="País: " />
+				                    <h:outputText  value="#{userWizard.user.street}" styleClass="outputLabel"/>
+				                	
+				                    <h:outputText value="Estado: " />
+				                    <h:outputText  value="#{userWizard.user.street}" styleClass="outputLabel"/>
+				 
+				                    <h:outputText value="Cidade: " />
+				                    <h:outputText  value="#{userWizard.user.postalCode}" styleClass="outputLabel"/>
+				 
+				                    <h:outputText value="Bairro: " />
+				                    <h:outputText  value="#{userWizard.user.city}" styleClass="outputLabel"/>
+				                    
+				                    <h:outputText value="Rua: " />
+				                    <h:outputText  value="#{userWizard.user.city}" styleClass="outputLabel"/>
+				                </h:panelGrid>
+			 
+			 
+			                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
+				                    <h:outputText value="Email: " />
+					                    <h:outputText  value="#{userWizard.user.email}" styleClass="outputLabel"/>
+				 
+				                    <h:outputText value="Celular: " />
+				                    <h:outputText  value="#{userWizard.user.phone}" styleClass="outputLabel"/>
+				 
+				                    <h:outputText value="Telefone: " />
+				                    <h:outputText  value="#{userWizard.user.info}" styleClass="outputLabel"/>
+				                </h:panelGrid>
+			                </h:panelGrid>
+			 
+			                <p:commandButton value="Enviar" actionListener="#{userWizard.save}" update="growl" process="@this" class="btn btn-primary align-right"/>
+			            </p:panel>
+			        </p:tab>
+			    </p:wizard>
+		    </h:form>
+	    </div>
+    </div>
+    <ui:insert name="footer">
+		<ui:include src="/templates/footers/footer.xhtml" />
+	</ui:insert>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
