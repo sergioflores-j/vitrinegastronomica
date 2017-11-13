@@ -22,31 +22,40 @@
 				<h3>Vitrine Gastronômica</h3>
 				<h4>Área do Anunciante</h4>
 			</div>
-			<h:form>
-				<p:panel id="grid" layout="grid">
-			       	<p:messages autoUpdate="true"/>
-		       		<div class="form-group">
-		       			<h:outputLabel for="email" value="Email:" styleClass="text-700"/>
-						<p:inputText id="email" value="#{loginView.email}" required="true" requiredMessage="O campo Email é obrigatório." label="Email"/>
-		       		</div>
-					<div class="form-group">
-						<h:outputLabel for="password" value="Senha:" styleClass="text-700"/>
-						<p:password id="password" value="#{loginView.password}" required="true" requiredMessage="O campo Senha é obrigatório." label="Senha"/>
-					</div>
-					<div class="form-group">
-						<p>
-							<strong><p:link outcome="/user/newPassword.xhtml" value="Esqueci minha senha"/></strong>
-						</p>
-						<p>
-							Ainda não é um anunciante? <strong><p:link outcome="/user/register.xhtml" value="Cadastre-se" /></strong>
-						</p>
-					</div>
-					<div class="form-group">
-						<p:commandButton class="btn-primary" value="Login" update="grid" icon="fa fa-sign-in" actionListener="#{loginView.login}" validateClient="true"/>
-					</div>
-				</p:panel>
-			</h:form>
+			<div class="box-login">
+				<h:form>
+					<p:panel id="grid" layout="grid">
+				       	<p:messages autoUpdate="true"/>
+			       		<div class="form-group">
+			       			<h:outputLabel for="email" value="Email:" styleClass="text-700"/>
+							<p:inputText id="email" value="#{loginView.user.email}" required="true" requiredMessage="O campo Email é obrigatório." label="Email"/>
+			       		</div>
+						<div class="form-group">
+							<h:outputLabel for="password" value="Senha:" styleClass="text-700"/>
+							<p:password id="password" value="#{loginView.user.password}" required="true" requiredMessage="O campo Senha é obrigatório." label="Senha"/>
+						</div>
+						<div class="form-group">
+							<p>
+								<strong><p:link outcome="/user/newPassword.xhtml" value="Esqueci minha senha"/></strong>
+							</p>
+							<p>
+								Ainda não é um anunciante? <strong><p:link outcome="/user/register.xhtml" value="Cadastre-se"/></strong>
+							</p>
+						</div>
+						<div class="form-group">
+							<p:commandButton class="btn-primary" value="Login" update="grid" icon="fa fa-sign-in" actionListener="#{loginView.login}" validateClient="true"/>
+						</div>
+					</p:panel>
+				</h:form>
+			</div>
 		</div>
 	</div>
+	<script>
+	/*<![CDATA[*/
+		$(document).ready(() => {
+			$('input')[1].focus();
+		})
+	/*]]>*/
+	</script>
 </body> 
 </html>
