@@ -4,7 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
 @Named
-public class Category {
+public class CategoryView {
 	private long id;
 	private String title;
 	

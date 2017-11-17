@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastro de Produto - Vitrine Gastronômica</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<!-- Style -->
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
+</h:head> 
+<body> 
+	<ui:insert name="header">
+		<ui:include src="/templates/headers/header.xhtml"/>
+	</ui:insert>
+	
+	<div class="container-fluid" style="margin-top: 20px !important; height: 560px !important">
+		<div class="row">
+			<h:form>
+				<p:growl id="growl" sticky="true" showDetail="true"/>
+			 
+			    <p:wizard flowListener="#{userWizard.onFlowProcess}" backLabel="Voltar" nextLabel="Avançar">
+			    
+			        <p:tab id="product" title="Produto">
+			            <p:panel header="Dados dos Produto">
+			                <p:messages />
+			                <h:panelGrid columns="2">
+			                    <h:outputText for="title" value="Título: *" />
+			                    <p:inputText id="title" value="#{product.title}" required="true" requiredMessage="O campo Título é obrigatório." label="Nome"/>
+			 
+			                    <h:outputText for="description" value="Descrição: " />
+			                    <p:inputText id="description" value="#{product.description}" required="true" requiredMessage="O campo Descrição é obrigatório."/>
+			                    
+			                    <h:outputText for="price" value="Preço: " />
+			                    <p:inputText id="price" value="#{product.price}" />
+			                    
+			                    <h:outputText for="category" value="Categoria: " />
+			                    <p:inputText id="category" value="#{product.category.title}" /><!-- SELECT CATEGORY -->
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:tab>
+			        
+			        <p:tab id="login" title="Imagem">
+			            <p:panel header="Upload de Imagem">
+			                <p:messages />
+			                <h:panelGrid columns="2">
+			                    <h:outputText value="Imagem: *" />
+			                    <p:inputText value="#{product.img}"/><!-- IMG -->
+			                </h:panelGrid>
+			            </p:panel>
+			        </p:tab>
+			 
+			        <p:tab id="confirm" title="Confirmação">
+			            <p:panel header="Confirme as informações" class="conf">
+				                <h:panelGrid id="confirmation" columns="4" columnClasses="grid,grid,grid,grid">
+				                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
+				                    <h:outputText for="title" value="Título: " />
+				                    <h:outputText id="title" value="#{product.title}" styleClass="outputLabel"/>
+				 
+				                    <h:outputText for="description" value="Descrição: " />
+				                    <h:outputText id="description" value="#{product.description}" styleClass="outputLabel"/>
+				                    
+				                    <h:outputText for="price" value="Preço: " />
+				                    <h:outputText id="price" value="#{product.price}" styleClass="outputLabel"/>
+				                    
+				                    <h:outputText for="category" value="Categoria: " />
+				                    <h:outputText id="category" value="#{product.category.title}" styleClass="outputLabel"/><!-- SELECT CATEGORY -->
+				                </h:panelGrid>
+				               
+				               <!-- IMG -->
+				               </h:panelGrid>
+				               
+			                <p:commandButton value="Enviar" actionListener="#{Wizad.save}" update="growl" process="@this" class="btn btn-primary align-right"/>
+			            </p:panel>
+			        </p:tab>
+			    </p:wizard>
+		    </h:form>
+	    </div>
+    </div>
+    <ui:insert name="footer">
+		<ui:include src="/templates/footers/footer.xhtml" />
+	</ui:insert>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+	<script src="#{request.contextPath}/assets/js/header.js"></script> 
+</body> 
+</html>
+

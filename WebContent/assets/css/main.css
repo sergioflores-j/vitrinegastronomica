@@ -301,12 +301,12 @@ footer{
   color: #800000;
   font-size: 50px !important;
   width: 100% !important;
-  height: 15%;
+  height: 120px;
   background: #e99d52;
 }
 
 #slogan{
-  margin-top: -53px !important;
+  margin-top: -4% !important;
   margin-left: 40px;
   margin-right: 40px;
   font-family: ralewaylight !important;
@@ -360,4 +360,13 @@ table > tbody > tr> td.grid{
 .ui-state-highlight{
   background: #e06b04 !important;
   border-color: #e06b04 !important;
+}
+
+#waring{
+	font-size: 12px !important;
+	font-weight: bold;
+	color: #5c5c5c;
+	font-family: inherit !important;
+	margin-left: 5px;
+	margin-bottom: 0px; 
 }

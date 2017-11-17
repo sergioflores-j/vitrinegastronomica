@@ -14,11 +14,27 @@ import com.sun.mail.iap.Response;
 @ManagedBean
 @ViewScoped
 public class Wizard implements Serializable {
-	private Advertiser advertiser = new Advertiser();
+	private AdvertiserView advertiser = new AdvertiserView();
+	private ProductView product = new ProductView();
     private boolean skip;
-     
     
-    public boolean isSkip() {
+    public AdvertiserView getAdvertiser() {
+		return advertiser;
+	}
+
+	public void setAdvertiser(AdvertiserView advertiser) {
+		this.advertiser = advertiser;
+	}
+
+	public ProductView getProduct() {
+		return product;
+	}
+
+	public void setProduct(ProductView product) {
+		this.product = product;
+	}
+
+	public boolean isSkip() {
         return skip;
     }
  
@@ -26,10 +42,18 @@ public class Wizard implements Serializable {
         this.skip = skip;
     }
 
-	public void save(){        
-        FacesMessage msg = new FacesMessage("Sucesso ao realizar cadastro", "Bem vindo: " + advetiser.getName());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
+	public void saveAdvertiser(){
+		System.out.println("XXXXXXXXXXXXXXXXXX Save wizard XXXXXXXXXXXXXXXXXXXXXX");
+        advertiser.save();
+        LoginView log = new LoginView();
+        log.setEmail(advertiser.getEmail());
+        log.setPassword(advertiser.getPassword());
     }
+	
+	public void saveProduct(){
+		product.save();
+		redirect();
+	}
 	
 	public void redirect(){
 		try {

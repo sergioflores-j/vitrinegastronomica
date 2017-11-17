@@ -4,14 +4,14 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 @ManagedBean
-public class Product {
+public class ProductView {
 	private long id;
 	private String title;
 	private String img;
 	private String description;
 	private long price;
 	@Inject
-	private Category category;
+	private CategoryView category;
 	
 	public long getId() {
 		return id;
@@ -43,11 +43,21 @@ public class Product {
 	public void setPrice(long price) {
 		this.price = price;
 	}
-	public Category getCategory() {
+	public CategoryView getCategory() {
 		return category;
 	}
-	public void setCategory(Category category) {
+	public void setCategory(CategoryView category) {
 		this.category = category;
+	}
+	
+	public void save(){
+		ProductView p = new ProductView();
+		
+		p.setTitle(this.title);
+		p.setDescription(this.description);
+		p.setPrice(this.price);
+		
+		
 	}
 	
 }
