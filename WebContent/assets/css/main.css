@@ -306,9 +306,12 @@ footer{
 }
 
 #slogan{
+<<<<<<< HEAD
   margin-top: -4% !important;
   margin-left: 40px;
   margin-right: 40px;
+=======
+>>>>>>> fbc90ab1f423633473fde68aaa2dcb687559541f
   font-family: ralewaylight !important;
   font-weight: 800;
   font-size: 20px !important;
