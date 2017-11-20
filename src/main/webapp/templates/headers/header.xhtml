@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<body> 
+
+<ui:composition>
+	<header>
+		<h:form>
+		    <p:menubar>
+		    	<p:menuitem value="Vitrine Gastronômica" url="/index.xhtml" class="btn btn-md" style="font-weight:bold"/>
+			    <p:menuitem value="Home" url="/" icon="fa fa-home" class="btn btn-md menu"/>
+		        <p:menuitem value="Anunciantes" url="#" icon="fa fa-bullhorn" class="btn btn-md menu"/>
+		        <p:menuitem value="Produtos" url="#" icon="fa fa-cutlery" class="btn btn-md menu"/>
+		        <f:facet name="options">
+		            <p:button type="button" value="Login" outcome="/user/login.xhtml" icon="fa fa-sign-in" class="btn btn-primary btn-xs btn-login" />
+		        	<p:button type="button" value="Cadastre-se" outcome="/user/register.xhtml" icon="fa fa-user-plus" class="btn btn-primary btn-xs btn-register"/>
+		        	<p:button type="button" value="Sair" icon="fa fa-sign-out" class="btn btn-primary btn-xs btn-logout"/>
+		        	<p:commandButton type="button" icon="fa fa-bars" class="btn btn-secondary btn-md hamburger"/>
+		        	<p:commandButton type="button" icon="fa fa-times" class="btn btn-secondary btn-md cross"/>
+		        </f:facet>
+		    </p:menubar>
+		</h:form>
+	</header>
+</ui:composition>
+
+</body> 
+</html>
