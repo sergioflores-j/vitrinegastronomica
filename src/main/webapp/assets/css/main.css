@@ -33,6 +33,10 @@ body {
   margin: 0px !important;	
 }
 
+.no-border{
+  border: 0 !important;
+}
+
 .centered {
   text-align: center;
 }

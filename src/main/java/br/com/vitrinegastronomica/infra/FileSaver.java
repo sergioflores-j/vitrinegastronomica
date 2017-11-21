@@ -15,11 +15,12 @@ import javax.servlet.http.Part;
 
 public class FileSaver {
 
-	public static final String SERVER_PATH = "/tmp";
+	public static final String SERVER_PATH = "/temporaria";
 
 	public String write(Part file, String path) {
-		// Pega o "Part" e "escreve" em disco na pasta passada, a partir da raíz
+		// Pega o "Part" e "escreve" em disco na pasta passada, a partir da raï¿½z
 		// do sistema com o nome do file que foi enviado
+		System.out.println("O ARQUIVO Ã‰ " + path + "/" + file.getSubmittedFileName());
 		String relativePath = path + "/" + file.getSubmittedFileName();
 
 		try {
@@ -47,7 +48,7 @@ public class FileSaver {
 				// Aloca de 10 em 10 KB
 				ByteBuffer buffer = ByteBuffer.allocateDirect(1024 * 10);
 
-				// Enquanto o tamanho do buffer for diferente de 1, o canal lê
+				// Enquanto o tamanho do buffer for diferente de 1, o canal lï¿½
 				// ele
 				while (inputChannel.read(buffer) != -1) {
 					// Seta os bytes pra 0 de novo

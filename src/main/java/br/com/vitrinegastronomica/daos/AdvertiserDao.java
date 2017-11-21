@@ -26,13 +26,17 @@ public class AdvertiserDao {
 		try {
 			Advertiser result = query.getSingleResult();
 
-			System.out.println("O USU�RIO ENCONTRADO � " + result);
+			System.out.println("O USUÁRIO ENCONTRADO É " + result);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 
 		return true;
+	}
+
+	public void save(Advertiser advertiser) {
+		em.persist(advertiser);
 	}
 
 }

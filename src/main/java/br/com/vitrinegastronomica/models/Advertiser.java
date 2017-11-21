@@ -23,8 +23,7 @@ public class Advertiser {
 	@NotBlank
 	private String imgPath;
 	@Lob
-	@NotBlank
-	@Length(min = 8)
+	@Length(max = 50)
 	private String description;
 	/* Login Info */
 	@Email
@@ -34,23 +33,18 @@ public class Advertiser {
 	private String password;
 	/* Contato */
 	@NotBlank
-	@Length(min = 10)
-	private String tel1;
-	@Length(min = 10)
-	private String tel2;
-	/* Endereço */
+	@Length(min = 10, max = 17)
+	private String phoneC;
+	private String phoneT;
+	/* Endereï¿½o */
 	@NotBlank
 	private String country;
 	@NotBlank
 	private String state;
 	@NotBlank
 	private String city;
-	@NotBlank
 	private String neighborhood;
-	@NotBlank
-	private String Street;
-	@NotBlank
-	private Long number;
+	private String street;
 
 	public Long getId() {
 		return id;
@@ -100,20 +94,20 @@ public class Advertiser {
 		this.password = password;
 	}
 
-	public String getTel1() {
-		return tel1;
+	public String getPhoneC() {
+		return phoneC;
 	}
 
-	public void setTel1(String tel1) {
-		this.tel1 = tel1;
+	public void setPhoneC(String phoneC) {
+		this.phoneC = phoneC;
 	}
 
-	public String getTel2() {
-		return tel2;
+	public String getPhoneT() {
+		return phoneT;
 	}
 
-	public void setTel2(String tel2) {
-		this.tel2 = tel2;
+	public void setPhoneT(String phoneT) {
+		this.phoneT = phoneT;
 	}
 
 	public String getCountry() {
@@ -149,27 +143,19 @@ public class Advertiser {
 	}
 
 	public String getStreet() {
-		return Street;
+		return street;
 	}
 
 	public void setStreet(String street) {
-		Street = street;
-	}
-
-	public Long getNumber() {
-		return number;
-	}
-
-	public void setNumber(Long number) {
-		this.number = number;
+		this.street = street;
 	}
 
 	@Override
 	public String toString() {
 		return "Advertiser [id=" + id + ", name=" + name + ", imgPath=" + imgPath + ", description=" + description
-				+ ", email=" + email + ", password=" + password + ", tel1=" + tel1 + ", tel2=" + tel2 + ", country="
-				+ country + ", state=" + state + ", city=" + city + ", neighborhood=" + neighborhood + ", Street="
-				+ Street + ", number=" + number + "]";
+				+ ", email=" + email + ", password=" + password + ", phoneC=" + phoneC + ", phoneT=" + phoneT
+				+ ", country=" + country + ", state=" + state + ", city=" + city + ", neighborhood=" + neighborhood
+				+ ", street=" + street + "]";
 	}
 
 	@Override

@@ -1,109 +1,70 @@
 package br.com.vitrinegastronomica.beans;
 
+import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.servlet.http.Part;
+import javax.transaction.Transactional;
 
 import org.primefaces.event.FlowEvent;
 
-@ManagedBean
+import br.com.vitrinegastronomica.daos.AdvertiserDao;
+import br.com.vitrinegastronomica.infra.FileSaver;
+import br.com.vitrinegastronomica.models.Advertiser;
+
+@Model
 public class AdvertiserBean {
-	private long id;
-	private String name;
-	private String img;
-	private String description;
-	private String login;
-	private String senha;
+
 	@Inject
-	private Address address = new Address();
+	private AdvertiserDao dao;
 	@Inject
-	private Contact contact = new Contact();
-	private boolean skip;
+	private FacesContext context;
 
-	public long getId() {
-		return id;
-	}
+	@Transactional
+	public String save(Advertiser advertiser, Part logo) throws NoSuchAlgorithmException, IOException {
+		
+		/**
+		 * Pega a instancia do MD5 HASH
+//		 */
+//		MessageDigest m = MessageDigest.getInstance("MD5");
+//		m.update(advertiser.getPassword().getBytes(), 0, advertiser.getPassword().length());
+//		/*
+//		 * SETA A SENHA PARA UM HASHCODE MD5
+//		 */
+//		advertiser.setPassword(new BigInteger(1, m.digest()).toString(16));
 
-	public void setId(long id) {
-		this.id = id;
-	}
+		/**
+		 * PEGA UMA INSTANCIA DO FILE SAVER E SETA O CAMINHO QUE ELE RETORNA
+		 * PARA O imgPath (logo ou foto de perfil do usuário)
+		 */
+		FileSaver fileSaver = new FileSaver();
+		/*
+		 * OBS: NÃO IRÁ CRIAR CASO NÃO EXISTA A PASTA DEFINIDA NO SERVIDOR,
+		 * JUNÇÃO ENTRE O "SERVER_PATH" E O relativePath
+		 */
+		advertiser.setImgPath(fileSaver.write(logo, "advertisers"));
+		
+		System.out.println("ADVERTISER PARA SALVAR ==> " + advertiser);
 
-	public String getName() {
-		return name;
-	}
+		/* SALVA NO BANCO */
+		try {
+			dao.save(advertiser);
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
-	public Contact getContact() {
-		return contact;
-	}
-
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
-	
-	public boolean isSkip() {
-        return skip;
-    }
- 
-    public void setSkip(boolean skip) {
-        this.skip = skip;
-    }
-	
-	public String onFlowProcess(FlowEvent event) {
-		if (skip) {
-			skip = false; // reset in case user goes back
-			return "confirm";
-		} else {
-			return event.getNewStep();
+			context.getExternalContext().getFlash().setKeepMessages(true);
+			context.addMessage(null, new FacesMessage("Sucesso ao realizar cadastro",
+					advertiser.getName() + " para continuar, efetue o login."));
+		} catch (Exception e) {
+			context.addMessage(null, new FacesMessage("Falha ao cadastrar, tente novamente mais tarde!"));
+			throw new RuntimeException(e);
 		}
+
+		return "/index?faces-redirect=true";
 	}
-	
-	public void save(){        
-        FacesMessage msg = new FacesMessage("Sucesso ao realizar cadastro", "Bem vindo: " + getName());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
+
 }

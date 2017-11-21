@@ -24,7 +24,7 @@ public class Wizard implements Serializable {
 	}
 
 	public void save() {
-		FacesMessage msg = new FacesMessage("Sucesso ao realizar cadastro", "Bem vindo: " + advertiser.getName());
+		FacesMessage msg = new FacesMessage("Sucesso ao realizar cadastro", "Bem vindo: " + advertiser);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 

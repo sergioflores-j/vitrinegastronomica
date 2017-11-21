@@ -1,5 +1,6 @@
 package br.com.vitrinegastronomica.servlets;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.FileNameMap;
 import java.net.URLConnection;
@@ -15,19 +16,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.vitrinegastronomica.infra.FileSaver;
 
-//Mapeia o URI e tudo o que tiver a partir de /files/ será tratado por este servlet
+//Mapeia o URI e tudo o que tiver a partir de /files/ serï¿½ tratado por este servlet
 @WebServlet("/files/*")
 public class FileServlet extends HttpServlet {
 
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse res)
+			throws ServletException, IOException, FileNotFoundException {
 		String path = req.getRequestURI().split("/files")[1];
 
 		Path source = Paths.get(FileSaver.SERVER_PATH + "/" + path);
 		FileNameMap fileNameMap = URLConnection.getFileNameMap();
 		String contentType = fileNameMap.getContentTypeFor("file:" + source);
 
-		res.reset();// caso o JSF importe alguma informação, limpar ela
+		res.reset();// caso o JSF importe alguma informaï¿½ï¿½o, limpar ela
 		res.setContentType(contentType);
 		res.setHeader("Content-Length", String.valueOf(Files.size(source)));
 		res.setHeader("Content-Disposition", "filename=\"" + source.getFileName().toString() + "\"");
