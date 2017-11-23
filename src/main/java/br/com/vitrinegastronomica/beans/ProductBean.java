@@ -10,8 +10,6 @@ public class ProductBean {
 	private String img;
 	private String description;
 	private long price;
-	@Inject
-	private Category category;
 
 	public long getId() {
 		return id;
@@ -53,12 +51,5 @@ public class ProductBean {
 		this.price = price;
 	}
 
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
 
 }
