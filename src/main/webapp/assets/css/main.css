@@ -354,7 +354,7 @@ table > tbody > tr> td.grid{
   opacity: 0.9;
   line-height: 1.0px !important;
   font-size: 10px !important;
-  padding: 10px !important;
+  padding: 10px !i\mportant;
 }
 
 /* class register flaps */
@@ -362,3 +362,24 @@ table > tbody > tr> td.grid{
   background: #e06b04 !important;
   border-color: #e06b04 !important;
 }
+
+/* class image profile 	
+.profile{
+	background-color: transparent;
+}
+
+.profile > img{
+	background-color: #fff;
+	border-radius: 110px;
+}*/
+
+
+/* class title information profile 
+.profile-inf{
+	padding: 40px;
+}
+
+.profile-panel{
+	margin-right: -10px;
+	width: 
+}*/

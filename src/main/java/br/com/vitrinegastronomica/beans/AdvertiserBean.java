@@ -20,12 +20,17 @@ import br.com.vitrinegastronomica.models.Advertiser;
 
 @Model
 public class AdvertiserBean {
-
 	@Inject
 	private AdvertiserDao dao;
 	@Inject
 	private FacesContext context;
-
+	
+	public String image(){
+		return "images/VG2.png";
+	}
+	
+	
+	
 	@Transactional
 	public String save(Advertiser advertiser, Part logo) throws NoSuchAlgorithmException, IOException {
 		
