@@ -21,140 +21,90 @@
 	<div class="container-fluid" style="margin-top: 20px !important">
 		<div class="row">
 			<h:form enctype="multipart/form-data">
-				<p:growl id="growl" sticky="true" showDetail="true"/>
-			 
-			    <p:wizard flowListener="#{advertiserWizard.onFlowProcess}" backLabel="Voltar" nextLabel="Avançar">
-			    
-			        <p:tab id="personal" title="Pessoal">
+			    <div class="col-auto">
+			 		<div class="form-group">
 			            <p:panel header="Dados Pessoais">
 			                <p:panelGrid columns="4" layout="grid">
 			                    <h:outputLabel value="Nome: *" />
-			                    <p:inputText id="name" value="#{advertiserWizard.advertiser.name}" required="true" label="Nome" class="form-control"/>
+			                    <p:inputText id="name" value="#{advertiserBean.advertiser.name}" required="true" label="Nome" class="form-control"/>
 			                    <h:outputText id="colspan1" />
 			                    <p:message for="name"/>
 			 	
 			                    <h:outputLabel value="Descrição: (opcional)" />
-			                    <p:inputTextarea id="description" value="#{advertiserWizard.advertiser.description}" rows="5" cols="30" counter="display" maxlength="50" counterTemplate="{0} caracteres restantes." class="form-control" />
+			                    <p:inputTextarea id="description" value="#{advertiserBean.advertiser.description}" rows="5" cols="30" counter="display" maxlength="50" counterTemplate="{0} caracteres restantes." class="form-control" />
 			                    <h:outputText id="display" />
 			                    <p:message for="description"/>
 			                    
 			                    <h:outputLabel value="Foto de Perfil: *" />
-			                    <p:fileUpload id="logo" value="#{advertiserWizard.logo}" mode="simple" skinSimple="true" label="Escolher" />
+			                    <h:inputFile id="logo" value="#{advertiserBean.logo}" />
 			                    <h:outputText value="Escolha uma imagem: (*.jpg, *.png, *.gif)"/>
 			                    <p:message for="logo"/>
 			                </p:panelGrid>
 			            </p:panel>
-			        </p:tab>
-			        
-			        <p:tab id="login" title="Login">
+		            </div>
+	            </div>
+		        <div class="col-auto">
+			 		<div class="form-group">
 			            <p:panel header="Dados de Login">
 			                <h:panelGrid columns="3">
-			                    <h:outputText value="Email: *" />
-			                    <p:inputText id="email" value="#{advertiserWizard.advertiser.email}" required="true" label="Email"/>
+			                    <h:outputLabel value="Email: *" />
+			                    <p:inputText id="email" value="#{advertiserBean.advertiser.email}" required="true" label="Email" class="form-control"/>
 			 					<p:message for="email"/>
 			 
-			                    <h:outputText value="Senha: *" />
-			                    <p:password id="password" value="#{advertiserWizard.advertiser.password}" required="true" label="Senha"/>
+			                    <h:outputLabel value="Senha: *" />
+			                    <p:password id="password" value="#{advertiserBean.advertiser.password}" required="true" label="Senha" class="form-control"/>
 			                    <p:message for="password"/>
 			                </h:panelGrid>
 			            </p:panel>
-			        </p:tab>
-			 
-			        <p:tab id="address" title="Endereço">
+		            </div>
+	            </div>
+		 		<div class="col-auto">
+			 		<div class="form-group">
 			            <p:panel header="Detalhes do Endereço">
 			                <h:panelGrid columns="3" >
-			                	<h:outputText value="Rua: " />
-			                    <p:inputText id="street" value="#{advertiserWizard.advertiser.street}" />
+			                	<h:outputLabel value="Rua: " />
+			                    <p:inputText id="street" value="#{advertiserBean.advertiser.street}" class="form-control"/>
 			                    <p:message for="street"/>
 			                	
-			                	<h:outputText value="Bairro: " />
-			                    <p:inputText id="neighborhood" value="#{advertiserWizard.advertiser.neighborhood}" />
+			                	<h:outputLabel value="Bairro: " />
+			                    <p:inputText id="neighborhood" value="#{advertiserBean.advertiser.neighborhood}" class="form-control"/>
 			                    <p:message for="neighborhood"/>
 			                	
-			                    <h:outputText value="Cidade: *" />
-			                    <p:inputText id="city" value="#{advertiserWizard.advertiser.city}" required="true"/>
+			                    <h:outputLabel value="Cidade: *" />
+			                    <p:inputText id="city" value="#{advertiserBean.advertiser.city}" required="true" class="form-control"/>
 			 					<p:message for="city"/>
 			 
-			                    <h:outputText value="Estado: *" />
-			                    <p:inputText id="state" value="#{advertiserWizard.advertiser.state}" required="true"/>
+			                    <h:outputLabel value="Estado: *" />
+			                    <p:inputText id="state" value="#{advertiserBean.advertiser.state}" required="true" class="form-control"/>
 			                    <p:message for="state"/>
 			                    
-			                    <h:outputText value="País: *" />
-			                    <p:inputText id="country" value="#{advertiserWizard.advertiser.country}" required="true"/>
+			                    <h:outputLabel value="País: *" />
+			                    <p:inputText id="country" value="#{advertiserBean.advertiser.country}" required="true" class="form-control"/>
 			                    <p:message for="country"/>
 			                </h:panelGrid>
 			            </p:panel>
-			        </p:tab>
-			 
-			        <p:tab id="contact" title="Contato">
+		            </div>
+	            </div>
+		 		<div class="col-auto">
+			 		<div class="form-group">
 			            <p:panel header="Informações de contato">
 			                <h:panelGrid columns="3">
-			                    <h:outputText value="Celular: *" />
-			                    <p:inputText id="phoneC" value="#{advertiserWizard.advertiser.phoneC}" required="true" label="Celular"/>
+			                    <h:outputLabel value="Celular: *" />
+			                    <p:inputText id="phoneC" value="#{advertiserBean.advertiser.phoneC}" required="true" label="Celular" class="form-control"/>
 			                    <p:message for="phoneC"/>
 			 
-			                    <h:outputText value="Telefone: (opcional)" />
-			                    <p:inputText id="phoneT" value="#{advertiserWizard.advertiser.phoneT}"/>
+			                    <h:outputLabel value="Telefone: (opcional)" />
+			                    <p:inputText id="phoneT" value="#{advertiserBean.advertiser.phoneT}" class="form-control"/>
 			                    <p:message for="phoneT"/>
 			                </h:panelGrid>
 			            </p:panel>
-			        </p:tab>
-			 
-			        <p:tab id="confirm" title="Confirmação">
-			            <p:panel header="Confirme as informações" class="conf">
-			            	<p:messages autoUpdate="true" />
-			                <h:panelGrid id="confirmation" columns="4" columnClasses="grid,grid,grid,grid">
-			                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
-			                    	<h:outputText value="Nome: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.name}" styleClass="outputLabel"/>
-				 
-				                    <h:outputText value="Descrição: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.description}" styleClass="outputLabel"/>
-				                    
-				                    <h:outputText value="Foto de Perfil: " />
-				                    <img src="#{request.contextPath}/files/#{advertiserWizard.advertiser.imgPath}" height="30%" alt="Sua Foto de Perfil"/>
-			                    </h:panelGrid>
-			                    
-				                <h:panelGrid columns="2" columnClasses="gap1, gap2">
-				                    <h:outputText value="Email: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.email}" styleClass="outputLabel"/>
-				 
-				                    <h:outputText value="Senha: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.password}" styleClass="outputLabel"/>
-				                </h:panelGrid>
-			 
-			 
-			                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
-				                	<h:outputText value="Rua: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.street}" styleClass="outputLabel"/>
-				                	
-				                    <h:outputText value="Bairro: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.neighborhood}" styleClass="outputLabel"/>
-				 
-				                    <h:outputText value="Cidade: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.city}" styleClass="outputLabel"/>
-				 
-				                    <h:outputText value="Estado: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.state}" styleClass="outputLabel"/>
-				                    
-				                    <h:outputText value="País: " />
-				                    <h:outputText  value="#{advertiserWizard.advertiser.country}" styleClass="outputLabel"/>
-				                </h:panelGrid>
-			 
-			 
-			                    <h:panelGrid columns="2" columnClasses="gap1, gap2">
-				                    <h:outputText value="Celular: "/>
-				                    <h:outputText  value="#{advertiserWizard.advertiser.phoneC}" styleClass="outputLabel"/>
-				 
-				                    <h:outputText value="Telefone: "/>
-				                    <h:outputText  value="#{advertiserWizard.advertiser.phoneT}" styleClass="outputLabel"/>
-				                </h:panelGrid>
-			                </h:panelGrid>
-			 
-			                <p:commandButton value="Enviar" actionListener="#{advertiserWizard.save}" update="growl" process="@this" class="btn btn-primary align-right"/>
-			            </p:panel>
-			        </p:tab>
-			    </p:wizard>
+				 	</div>
+			 	</div>
+			 	<div class="col-auto">
+			 		<div class="text-center form-group">
+						<h:commandButton value="Enviar" action="#{advertiserBean.save}" class="btn btn-primary btn-block"/>
+			 		</div>
+			 	</div>
 		    </h:form>
 	    </div>
     </div>

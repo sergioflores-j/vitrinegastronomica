@@ -1,5 +1,8 @@
 package br.com.vitrinegastronomica.daos;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,7 +20,7 @@ public class AdvertiserDao {
 		return em.createQuery("select u from Advertiser u", Advertiser.class).getResultList();
 	}
 
-	public boolean findByLogin(Advertiser a) {
+	public Advertiser findByLogin(Advertiser a) {
 		TypedQuery<Advertiser> query = em.createQuery(
 				"SELECT u FROM Advertiser u WHERE u.email = :pEmail AND u.password = :pPassword", Advertiser.class);
 		query.setParameter("pEmail", a.getEmail());
@@ -27,12 +30,13 @@ public class AdvertiserDao {
 			Advertiser result = query.getSingleResult();
 
 			System.out.println("O USUÁRIO ENCONTRADO É " + result);
+
+			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 
-		return true;
 	}
 
 	public void save(Advertiser advertiser) {

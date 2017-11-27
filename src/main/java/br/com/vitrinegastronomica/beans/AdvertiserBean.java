@@ -1,9 +1,6 @@
 package br.com.vitrinegastronomica.beans;
 
 import java.io.IOException;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
@@ -12,11 +9,10 @@ import javax.inject.Inject;
 import javax.servlet.http.Part;
 import javax.transaction.Transactional;
 
-import org.primefaces.event.FlowEvent;
-
 import br.com.vitrinegastronomica.daos.AdvertiserDao;
 import br.com.vitrinegastronomica.infra.FileSaver;
 import br.com.vitrinegastronomica.models.Advertiser;
+import br.com.vitrinegastronomica.utils.HashGenerator;
 
 @Model
 public class AdvertiserBean {
@@ -24,25 +20,15 @@ public class AdvertiserBean {
 	private AdvertiserDao dao;
 	@Inject
 	private FacesContext context;
-	
-	public String image(){
-		return "images/VG2.png";
-	}
-	
-	
+	private Advertiser advertiser = new Advertiser();
+	private Part logo;
 	
 	@Transactional
-	public String save(Advertiser advertiser, Part logo) throws NoSuchAlgorithmException, IOException {
-		
-		/**
-		 * Pega a instancia do MD5 HASH
-//		 */
-//		MessageDigest m = MessageDigest.getInstance("MD5");
-//		m.update(advertiser.getPassword().getBytes(), 0, advertiser.getPassword().length());
-//		/*
-//		 * SETA A SENHA PARA UM HASHCODE MD5
-//		 */
-//		advertiser.setPassword(new BigInteger(1, m.digest()).toString(16));
+	public String save() throws IOException {
+		System.out.println("LOGO ==> " + logo);
+		System.out.println("Advertiser ==> " + advertiser);
+
+		advertiser.setPassword(new HashGenerator().generateHash(advertiser.getPassword()));
 
 		/**
 		 * PEGA UMA INSTANCIA DO FILE SAVER E SETA O CAMINHO QUE ELE RETORNA
@@ -54,22 +40,35 @@ public class AdvertiserBean {
 		 * JUNÇÃO ENTRE O "SERVER_PATH" E O relativePath
 		 */
 		advertiser.setImgPath(fileSaver.write(logo, "advertisers"));
-		
+
 		System.out.println("ADVERTISER PARA SALVAR ==> " + advertiser);
 
 		/* SALVA NO BANCO */
-		try {
-			dao.save(advertiser);
 
-			context.getExternalContext().getFlash().setKeepMessages(true);
-			context.addMessage(null, new FacesMessage("Sucesso ao realizar cadastro",
-					advertiser.getName() + " para continuar, efetue o login."));
-		} catch (Exception e) {
-			context.addMessage(null, new FacesMessage("Falha ao cadastrar, tente novamente mais tarde!"));
-			throw new RuntimeException(e);
-		}
+		dao.save(advertiser);
+
+		context.getExternalContext().getFlash().setKeepMessages(true);
+		context.addMessage(null, new FacesMessage("Sucesso ao realizar o seu cadastro! ",
+				advertiser.getName() + " para continuar, efetue o login."));
 
 		return "/index?faces-redirect=true";
+
+	}
+
+	public Advertiser getAdvertiser() {
+		return advertiser;
+	}
+
+	public void setAdvertiser(Advertiser advertiser) {
+		this.advertiser = advertiser;
+	}
+
+	public Part getLogo() {
+		return logo;
+	}
+
+	public void setLogo(Part logo) {
+		this.logo = logo;
 	}
 
 }

@@ -23,13 +23,14 @@ public class FileServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException, FileNotFoundException {
+		
 		String path = req.getRequestURI().split("/files")[1];
 
 		Path source = Paths.get(FileSaver.SERVER_PATH + "/" + path);
 		FileNameMap fileNameMap = URLConnection.getFileNameMap();
 		String contentType = fileNameMap.getContentTypeFor("file:" + source);
 
-		res.reset();// caso o JSF importe alguma informa��o, limpar ela
+		res.reset();// caso o JSF importe alguma informação, limpar ela
 		res.setContentType(contentType);
 		res.setHeader("Content-Length", String.valueOf(Files.size(source)));
 		res.setHeader("Content-Disposition", "filename=\"" + source.getFileName().toString() + "\"");
