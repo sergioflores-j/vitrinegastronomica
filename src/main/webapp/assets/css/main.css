@@ -319,10 +319,10 @@ footer{
 
 
 /* Register */
-.conf{
-  display: table !important;
-  width: 100%;
+.ui-panel .ui-panel-content {
+	padding: 0px !important;
 }
+
 /* align tables */
 table > tbody > tr> td.grid{
   vertical-align: top !important;

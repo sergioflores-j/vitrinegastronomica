@@ -1,7 +1,6 @@
 package br.com.vitrinegastronomica.beans;
 
 import javax.faces.bean.ManagedBean;
-import javax.inject.Inject;
 
 @ManagedBean
 public class ProductBean {

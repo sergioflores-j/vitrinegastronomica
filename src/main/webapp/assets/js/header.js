@@ -4,6 +4,8 @@ $(document).ready(function () {
 });
 
 function checkLogin(){
+	let session = Cookies.get('session');
+	if(session) return true;
 	return false;
 }
 
@@ -66,7 +68,7 @@ function menuToggle() {
     });
     
     cross.click(function () {
-        menu.slideToggle('slow', function () {
+        menu.slideToggle('slow', function() {
             cross.hide();
             if(!isLogged){
     			login.hide();
@@ -75,6 +77,12 @@ function menuToggle() {
             hamburger.show();
         })
     });
+}
+
+function logout() {
+	let session = Cookies.get('session');
+	if(session) Cookies.remove('session', { path: '/vitrinegastronomica2' });
+	else console.log("NÃO HÁ SESSÃO!");
 }
 
 /*]]>*/

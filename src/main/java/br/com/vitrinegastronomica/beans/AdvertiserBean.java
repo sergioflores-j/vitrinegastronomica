@@ -25,7 +25,7 @@ public class AdvertiserBean {
 	private Advertiser advertiser = new Advertiser();
 
 	private Part logo;
-
+	
 	@Transactional
 	public String save() throws IOException {
 		System.out.println("LOGO ==> " + logo);
@@ -46,8 +46,6 @@ public class AdvertiserBean {
 
 		System.out.println("ADVERTISER PARA SALVAR ==> " + advertiser);
 
-		/* SALVA NO BANCO */
-
 		dao.save(advertiser);
 
 		context.getExternalContext().getFlash().setKeepMessages(true);
@@ -56,6 +54,12 @@ public class AdvertiserBean {
 
 		return "/index?faces-redirect=true";
 
+	}
+	
+	public String logout() {
+		context.getExternalContext().invalidateSession();
+		System.out.println("CASTOUAQUI");
+		return "/index?faces-redirect=true";
 	}
 
 	public Advertiser getAdvertiser() {

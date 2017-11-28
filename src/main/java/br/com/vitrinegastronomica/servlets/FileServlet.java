@@ -20,6 +20,8 @@ import br.com.vitrinegastronomica.infra.FileSaver;
 @WebServlet("/files/*")
 public class FileServlet extends HttpServlet {
 
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException, FileNotFoundException {
