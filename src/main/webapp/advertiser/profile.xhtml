@@ -1,45 +1,95 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions"> 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
 <h:head>
+	<title>Seu Perfil - Vitrine Gastronômica</title>
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta charset="utf-8"/>
-	<title>Área do Anunciante - Vitrine Gastronômica</title>
-	
-	<!-- Bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<!-- Style -->
-	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="#{request.contextPath}/assets/css/main.css" />
 </h:head>
-
 <body>
-
-<ui:insert name="header">
-	<ui:include src="/templates/headers/header.xhtml"/>
-</ui:insert>
-
-<div class="container-fluid">
-	<div class="row">
-		<p:messages />
-	</div>
-	<div class="row">
-		<div class="col-auto">
-			<p>TESTE</p>
+	<ui:insert name="header">
+		<ui:include src="/templates/headers/header.xhtml"/>
+	</ui:insert>
+	
+	<br/>
+	
+		<div style="display: table; width: 100%; min-height: 558px;">
+			
+			<div style="float: left; margin-left: 10px">
+				<p:panelGrid columns="2">
+					<f:facet name="header">
+						<img class="profile-img" src="../images/VG2.png" height="200px"/>
+					</f:facet>
+			
+					<h:outputText value="Nome:" />
+					<h:outputText value="Anunciante" />
+			
+					<h:outputText value="Descrição: " />
+					<h:outputText value="Descrição" />
+				</p:panelGrid>
+			</div>
+			
+			<div style="float: left; width: 80%; margin-left: 10px; margin-right: 10px;">
+				
+				<p:panelGrid columns="2" align="right" style="width: 100%" columnClasses="teste, null" var="adv" value="#{advertiserBean.findById()}">
+					<f:facet name="header">
+						<p:row>
+				            <p:column colspan="2" cellspacing=" 200px" >Informações</p:column>
+				        </p:row>	
+					</f:facet>
+					
+					<h:outputText value="Email: "/>
+					#{adv.email}
+					
+					<h:outputText value="Telefone: " />
+					<h:outputText value="#{advertiserBean.advertiser.phoneT}" />
+					
+					<h:outputText value="Celular: " />
+					<h:outputText value="#{advertiserBean.advertiser.phoneC}" />
+					
+					<h:outputText value="País: " />
+					<h:outputText value="#{advertiserBean.advertiser.country}" />
+					
+					<h:outputText value="Estado: " />
+					<h:outputText value="#{advertiserBean.advertiser.state}" />
+					
+					<h:outputText value="Cidade: " />
+					<h:outputText value="#{advertiserBean.advertiser.city}" />
+					
+					<h:outputText value="Bairro: " />
+					<h:outputText value="#{advertiserBean.advertiser.neighborhood}" />
+					
+					<h:outputText value="Rua: " />
+					<h:outputText value="#{advertiserBean.advertiser.street}" />
+					
+				</p:panelGrid>
+			</div>
+			
+			
+			<h:dataTable var="livro" value="#{advertiserBean.findId()}">
+				<h:column>
+					<f:facet name="header">Titulo</f:facet>
+					#{livro.email}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Descrição</f:facet>
+					#{livro.name}
+				</h:column>
+			</h:dataTable>
+			
 		</div>
-	</div>
-</div>
-
-<ui:insert name="footer">
-	<ui:include src="/templates/footers/footer.xhtml" />
-</ui:insert>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
-<script src="#{request.contextPath}/assets/js/header.js"></script>
-
+		
+	
+	<ui:insert name="footer">
+		<ui:include src="/templates/footers/footer.xhtml" />
+	</ui:insert>
 </body>
 </html>

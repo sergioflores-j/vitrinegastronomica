@@ -70,5 +70,6 @@ public class AdvertiserBean {
 	public void setLogo(Part logo) {
 		this.logo = logo;
 	}
-
+	
+	
 }

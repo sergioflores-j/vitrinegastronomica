@@ -363,23 +363,9 @@ table > tbody > tr> td.grid{
   border-color: #e06b04 !important;
 }
 
-/* class image profile 	
-.profile{
-	background-color: transparent;
+/* class column profile 	*/
+
+.teste{
+	width: 100px;
+	
 }
-
-.profile > img{
-	background-color: #fff;
-	border-radius: 110px;
-}*/
-
-
-/* class title information profile 
-.profile-inf{
-	padding: 40px;
-}
-
-.profile-panel{
-	margin-right: -10px;
-	width: 
-}*/
