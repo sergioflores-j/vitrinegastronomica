@@ -43,8 +43,6 @@ public class AdvertiserBean {
 
 		System.out.println("ADVERTISER PARA SALVAR ==> " + advertiser);
 
-		/* SALVA NO BANCO */
-
 		dao.save(advertiser);
 
 		context.getExternalContext().getFlash().setKeepMessages(true);
@@ -53,6 +51,12 @@ public class AdvertiserBean {
 
 		return "/index?faces-redirect=true";
 
+	}
+	
+	public String logout() {
+		context.getExternalContext().invalidateSession();
+		System.out.println("CASTOUAQUI");
+		return "/index?faces-redirect=true";
 	}
 
 	public Advertiser getAdvertiser() {
