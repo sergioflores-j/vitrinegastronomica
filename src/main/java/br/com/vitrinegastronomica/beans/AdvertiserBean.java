@@ -74,5 +74,5 @@ public class AdvertiserBean {
 		this.logo = logo;
 	}
 	
-	
+
 }

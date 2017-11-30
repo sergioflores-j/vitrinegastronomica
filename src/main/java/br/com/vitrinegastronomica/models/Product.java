@@ -40,7 +40,6 @@ public class Product {
 	
 	@ManyToMany
 	@Size(min = 1)
-	@NotNull
 	private List<Category> category = new ArrayList<>();
 	@ManyToOne
 	@JoinColumn(name="advertiser_id")
