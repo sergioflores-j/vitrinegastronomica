@@ -31,7 +31,6 @@ public class Product {
 	@ManyToMany
 	@JoinColumn(name = "category_id")
 	@Size(min = 1)
-	@NotNull
 	private List<Category> category = new ArrayList<>();
 
 	public Long getId() {

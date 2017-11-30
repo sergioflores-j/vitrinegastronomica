@@ -46,7 +46,7 @@
 		        <div class="col-auto">
 			 		<div class="form-group">
 			            <p:panel header="Dados de Login">
-			                <p:panelGrid columns="3" layout="grid">
+			                <h:panelGrid columns="3">
 			                    <h:outputLabel value="Email: *" />
 			                    <p:inputText id="email" value="#{advertiserBean.advertiser.email}" required="true" label="Email" class="form-control"/>
 			 					<p:message for="email"/>
@@ -54,14 +54,14 @@
 			                    <h:outputLabel value="Senha: *" />
 			                    <p:password id="password" value="#{advertiserBean.advertiser.password}" required="true" label="Senha" class="form-control"/>
 			                    <p:message for="password"/>
-			                </p:panelGrid>
+			                </h:panelGrid>
 			            </p:panel>
 		            </div>
 	            </div>
 		 		<div class="col-auto">
 			 		<div class="form-group">
 			            <p:panel header="Detalhes do Endereço">
-			                <p:panelGrid columns="3" layout="grid">
+			                <h:panelGrid columns="3" >
 			                	<h:outputLabel value="Rua: " />
 			                    <p:inputText id="street" value="#{advertiserBean.advertiser.street}" class="form-control"/>
 			                    <p:message for="street"/>
@@ -81,14 +81,14 @@
 			                    <h:outputLabel value="País: *" />
 			                    <p:inputText id="country" value="#{advertiserBean.advertiser.country}" required="true" class="form-control"/>
 			                    <p:message for="country"/>
-			                </p:panelGrid>
+			                </h:panelGrid>
 			            </p:panel>
 		            </div>
 	            </div>
 		 		<div class="col-auto">
 			 		<div class="form-group">
 			            <p:panel header="Informações de contato">
-			                <p:panelGrid columns="3" layout="grid">
+			                <h:panelGrid columns="3">
 			                    <h:outputLabel value="Celular: *" />
 			                    <p:inputText id="phoneC" value="#{advertiserBean.advertiser.phoneC}" required="true" label="Celular" class="form-control"/>
 			                    <p:message for="phoneC"/>
@@ -96,7 +96,7 @@
 			                    <h:outputLabel value="Telefone: (opcional)" />
 			                    <p:inputText id="phoneT" value="#{advertiserBean.advertiser.phoneT}" class="form-control"/>
 			                    <p:message for="phoneT"/>
-			                </p:panelGrid>
+			                </h:panelGrid>
 			            </p:panel>
 				 	</div>
 			 	</div>

@@ -1,11 +1,15 @@
 package br.com.vitrinegastronomica.beans;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.jms.Session;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import javax.transaction.Transactional;
 
@@ -76,4 +80,33 @@ public class AdvertiserBean {
 	}
 	
 	
+	
+	public Advertiser testeList(){
+		HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
+		Advertiser adv = (Advertiser) session.getAttribute("advertiser");
+		Advertiser obj = new Advertiser();
+		
+		if((session != null) && (adv != null)){
+			obj = (Advertiser) dao.findById(adv);
+			
+		}else{
+			System.out.println("DEU MERDA CAROLINA, DEU MERDA");
+		}
+		
+		return obj;
+		
+	}
+	
+	public String nameo(){
+		HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
+		Advertiser adv = (Advertiser) session.getAttribute("advertiser");
+		
+		System.out.println("SESSIONNN"  + session.getAttribute("advertiser") );
+		
+		System.out.println("ADV" + adv );
+		
+		return adv.getName();
+		
+		
+	}
 }
