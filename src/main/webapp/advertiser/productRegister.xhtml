@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Cadastre seus Produtos - Vitrine Gastronômica</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<!-- Style -->
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
+</h:head> 
+<body> 
+	<ui:insert name="header">
+		<ui:include src="/templates/headers/header.xhtml"/>
+	</ui:insert>
+	
+	<div class="container-fluid content" style="margin-top: 20px !important">
+		<div class="row">
+			<h:form enctype="multipart/form-data">
+			    <div class="col-auto">
+			 		<div class="form-group">
+			            <p:panel header="Cadastro de Produto">
+			                <p:panelGrid columns="4" layout="grid">
+			                    <h:outputLabel value="Nome: *" />
+			                    <p:inputText id="title" value="#{productBean.product.title}" required="true" label="Nome" class="form-control"/>
+			                    <h:outputText id="colspan1" />
+			                    <p:message for="title"/>
+			 	
+			                    <h:outputLabel value="Descrição: *" />
+			                    <p:inputTextarea id="description" value="#{productBean.product.description}" required="true" rows="5" cols="30" counter="display" maxlength="100" counterTemplate="{0} caracteres restantes." class="form-control"/>
+			                    <h:outputText id="display" />
+			                    <p:message for="description"/>
+			                    
+			                    <h:outputLabel value="Foto do Produto: *" />
+			                    <h:inputFile id="thumbnail" value="#{productBean.thumbnail}" />
+			                    <h:outputText value="Escolha uma imagem: (*.jpg, *.png, *.gif)"/>
+			                    <p:message for="thumbnail"/>
+			                    
+			                    <h:outputLabel value="Preço: *" />
+			                    <p:inputText id="price" value="#{productBean.product.price}" required="true" label="Preço" class="form-control" placeholder="R$ 0.00" />
+			                    <h:outputText id="colspan2" />
+			                    <p:message for="price"/>
+			                    
+			                    <h:outputLabel value="Categorias: *" />
+			                    <h:selectManyListbox id="categories" value="#{productBean.product.category}" converter="categoryConverter">
+									<f:selectItems value="#{productBean.categories}" var="category" itemValue="#{category}" itemLabel="#{category.title}" />
+								</h:selectManyListbox>
+			                    <h:outputText id="colspan3"/>
+			                    <p:message for="categories"/>
+			                </p:panelGrid>
+			            </p:panel>
+		            </div>
+	            </div>
+			 	<div class="col-auto">
+			 		<div class="text-center form-group">
+						<h:commandButton value="Enviar" action="#{productBean.save}" class="btn btn-primary btn-block"/>
+			 		</div>
+			 	</div>
+		    </h:form>
+	    </div>
+    </div>
+    <ui:insert name="footer">
+		<ui:include src="/templates/footers/footer.xhtml" />
+	</ui:insert>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body> 
+</html>

@@ -11,6 +11,15 @@ body {
   max-width: 950px;
 }
 
+.content {
+  min-height: calc(100vh - 90px);
+  margin: 0 auto -50px;
+}
+
+.push {
+  height: 50px;
+}
+
 .hide-mobile {
   @media screen and (max-width: 420px) {
     display: none;
@@ -251,6 +260,7 @@ footer{
   border: 1px solid;
   border-color: #b6b6b6;
   border-radius: 5px;
+  width: 100%;
 }
 
 .copyright{

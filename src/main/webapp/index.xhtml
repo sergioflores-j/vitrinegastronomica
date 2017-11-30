@@ -22,13 +22,13 @@
 	<ui:include src="/templates/headers/header.xhtml"/>
 </ui:insert>
 
-<div class="container-fluid">
+<div class="container-fluid content">
 	<div class="row">
 		<p:messages showDetail="true" autoUpdate="true" />
 	</div>
 	<div class="row">
 		<div id="banner">
-			<img src="images/VG1.png" alt="vitrinegastronomica" width="100%" height="100%"/>
+			<img src="#{request.contextPath}/assets/img/VG1.png" alt="vitrinegastronomica" width="100%" height="100%"/>
 		</div>
 	</div>
 	<div class="row">
@@ -37,6 +37,7 @@
 			<div><p>Simples, fácil e rápido ... Cadastre-se!</p></div>
 		</div>
 	</div>
+	<div class="push"></div>
 </div>
 
 <ui:insert name="footer">
@@ -44,8 +45,5 @@
 </ui:insert>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
-<script src="#{request.contextPath}/assets/js/header.js"></script>
-
 </body>
 </html>

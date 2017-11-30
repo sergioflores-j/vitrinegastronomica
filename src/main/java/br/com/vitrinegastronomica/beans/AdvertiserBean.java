@@ -55,7 +55,6 @@ public class AdvertiserBean {
 	
 	public String logout() {
 		context.getExternalContext().invalidateSession();
-		System.out.println("CASTOUAQUI");
 		return "/index?faces-redirect=true";
 	}
 

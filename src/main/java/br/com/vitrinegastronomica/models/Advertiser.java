@@ -1,11 +1,15 @@
 package br.com.vitrinegastronomica.models;
 
-import javax.persistence.Entity;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
@@ -45,6 +49,8 @@ public class Advertiser {
 	private String city;
 	private String neighborhood;
 	private String street;
+	@OneToMany(mappedBy = "advertiser", targetEntity = Product.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Product> products;
 
 	public Long getId() {
 		return id;
@@ -148,6 +154,14 @@ public class Advertiser {
 
 	public void setStreet(String street) {
 		this.street = street;
+	}
+	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	@Override

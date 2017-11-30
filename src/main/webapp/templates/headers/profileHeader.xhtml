@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+<body> 
+
+<ui:composition>
+	<header>
+	    <p:menubar>
+	    	<p:menuitem value="Vitrine Gastronômica" url="/" icon="fa fa-home" class="btn btn-md menu" style="font-weight:bold"/>
+		    <p:submenu label="Meus Produtos" icon="fa fa-cutlery" class="btn btn-md menu" style="padding: 0px !important;">
+                <p:menuitem value="Cadastrar" url="/advertiser/productRegister.xhtml" />
+				<p:separator />
+                <p:menuitem value="Listar" url="/advertiser/productsList.xhtml" />
+	        </p:submenu>
+	        <f:facet name="options">
+	        	<h:form>
+		        	<h:commandLink action="#{advertiserBean.logout}">
+		        		<button onclick="logout()" class="btn btn-primary btn-sm btn-logout"><i class="fa fa-sign-out"></i> Sair</button>
+		        	</h:commandLink>
+	        	</h:form>
+	        </f:facet>
+	    </p:menubar>
+	</header>
+	<script src="#{request.contextPath}/assets/js/profileHeader.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
+</ui:composition>
+
+</body> 
+</html>

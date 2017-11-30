@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8"/>
+	<title>Produtos de Anunciantes - Vitrine Gastronômica</title>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+	<!-- Style -->
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
+</h:head> 
+<body> 
+	<ui:insert name="header">
+		<ui:include src="/templates/headers/header.xhtml"/>
+	</ui:insert>
+	
+	<div class="container-fluid">
+		<div class="row">
+			<p:messages />
+		</div>
+		<div class="row">
+			<div class="col-auto">
+				<div class="card-group">
+					<ui:repeat value="#{productListBean.listAllProducts()}" var="product">
+						<div class="card">
+							<img class="card-img-top img-fluid" src="#{request.contextPath}/files/#{product.imgPath}" alt="#{product.title}" title="#{product.title}" />
+							<div class="card-body">
+								<div class="card-title">#{product.title}</div>
+								<div class="card-text">#{product.description}</div>
+								<div class="form-group">
+									<a href="#{request.contextPath}/product/detail.xhtml?id=#{product.id}" class="btn btn-primary">
+										Ver detalhes
+									</a>
+								</div>
+							</div>
+						</div>
+					</ui:repeat>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<ui:insert name="footer">
+		<ui:include src="/templates/footers/footer.xhtml" />
+	</ui:insert>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body> 
+</html>

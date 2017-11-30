@@ -6,17 +6,15 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-	<title>Seu Perfil - Vitrine Gastronômica</title>
+	<title>Meu Perfil - Vitrine Gastronômica</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<link rel="stylesheet"
-		href="#{request.contextPath}/assets/css/main.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
 </h:head>
 <body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headers/header.xhtml"/>
+		<ui:include src="/templates/headers/profileHeader.xhtml"/>
 	</ui:insert>
 	
 	<br/>
@@ -26,7 +24,7 @@
 			<div style="float: left; margin-left: 10px">
 				<p:panelGrid columns="2">
 					<f:facet name="header">
-						<img class="profile-img" src="../images/VG2.png" height="200px"/>
+						<img class="profile-img" src="#{request.contextPath}/assets/img/VG2.png" height="200px"/>
 					</f:facet>
 			
 					<h:outputText value="Nome:" />
@@ -72,18 +70,6 @@
 					
 				</p:panelGrid>
 			</div>
-			
-			
-			<h:dataTable var="livro" value="#{advertiserBean.findId()}">
-				<h:column>
-					<f:facet name="header">Titulo</f:facet>
-					#{livro.email}
-				</h:column>
-				<h:column>
-					<f:facet name="header">Descrição</f:facet>
-					#{livro.name}
-				</h:column>
-			</h:dataTable>
 			
 		</div>
 		

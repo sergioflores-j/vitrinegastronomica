@@ -41,7 +41,7 @@ public class LoginBean {
 
 			cookieHelper.setCookie("session", new HashGenerator().generateHash(a.getEmail() + new Date()), 12000);
 
-			System.out.println("SESSION SETADA ==> " + session.getAttribute("advertiser"));
+			System.out.println("SESSION GERADA ==> " + session.getAttribute("advertiser"));
 		}
 		return "/index?faces-redirect=true";
 	}

@@ -17,6 +17,7 @@
 	        	<h:form>
 		        	<p:button type="button" value="Login" outcome="/user/login.xhtml" icon="fa fa-sign-in" class="btn btn-primary btn-xs btn-login" />
 		        	<p:button type="button" value="Cadastre-se" outcome="/user/register.xhtml" icon="fa fa-user-plus" class="btn btn-primary btn-xs btn-register"/>
+		        	<p:button type="button" value="Meu perfil" outcome="/advertiser/profile.xhtml" icon="fa fa-user" class="btn btn-primary btn-xs btn-profile"/>
 		        	<h:commandLink action="#{advertiserBean.logout}">
 		        		<button onclick="logout()" class="btn btn-primary btn-xs btn-logout"><i class="fa fa-sign-out"></i> Sair</button>
 		        	</h:commandLink>
@@ -26,6 +27,8 @@
 	        </f:facet>
 	    </p:menubar>
 	</header>
+	<script src="#{request.contextPath}/assets/js/header.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/latest/js.cookie.min.js"></script>
 </ui:composition>
 
 </body> 

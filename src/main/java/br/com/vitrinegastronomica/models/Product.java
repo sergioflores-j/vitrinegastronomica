@@ -2,6 +2,7 @@ package br.com.vitrinegastronomica.models;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -26,13 +31,21 @@ public class Product {
 	private String imgPath;
 	@NotBlank
 	private String description;
-	@NotBlank
+	@DecimalMin("1")
+	@NotNull
 	private BigDecimal price;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar created_at;
+	
 	@ManyToMany
-	@JoinColumn(name = "category_id")
 	@Size(min = 1)
 	@NotNull
 	private List<Category> category = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name="advertiser_id")
+	@NotNull
+	private Advertiser advertiser;
 
 	public Long getId() {
 		return id;
@@ -69,11 +82,7 @@ public class Product {
 	public BigDecimal getPrice() {
 		return price;
 	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
+	
 	public List<Category> getCategory() {
 		return category;
 	}
@@ -82,10 +91,31 @@ public class Product {
 		this.category = category;
 	}
 
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public Advertiser getAdvertiser() {
+		return advertiser;
+	}
+
+	public void setAdvertiser(Advertiser advertiser) {
+		this.advertiser = advertiser;
+	}
+
+	public Calendar getCreated_at() {
+		return created_at;
+	}
+
+	public void setCreated_at(Calendar created_at) {
+		this.created_at = created_at;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", title=" + title + ", imgPath=" + imgPath + ", description=" + description
-				+ ", price=" + price + ", category=" + category + "]";
+				+ ", price=" + price + ", created_at=" + created_at + ", category=" + category + ", advertiser="
+				+ advertiser + "]";
 	}
 
 	@Override

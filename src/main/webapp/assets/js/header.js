@@ -16,13 +16,17 @@ function menuToggle() {
 	let logout = $('.btn-logout');
 	let login = $('.btn-login');
 	let register = $('.btn-register');
+	let profile = $('.btn-profile');
 	let isLogged = checkLogin();
 	console.log("READY");
 
 	cross.hide();
 	hamburger.hide();
 	
-	if(!isLogged) logout.hide();
+	if(!isLogged) {
+		logout.hide();
+		profile.hide();
+	}
 	else {
 		login.hide();
 		register.hide();
@@ -35,7 +39,10 @@ function menuToggle() {
 			if(!isLogged){
 				login.hide();
 				register.hide();
-			} else logout.hide();
+			} else {
+				logout.hide();
+				profile.hide();
+			}
 			
 			menu.hide();
 			hamburger.show();
@@ -46,7 +53,10 @@ function menuToggle() {
 			if(!isLogged){
 				login.show();
 				register.show();
-			} else logout.show();
+			} else {
+				logout.show();
+				profile.show();
+			}
 			
 			menu.show();
 			hamburger.hide();
@@ -59,7 +69,10 @@ function menuToggle() {
     	if(!isLogged){
 			login.show();
 			register.show();
-		} else logout.show();
+		} else {
+			logout.show();
+			profile.show();
+		}
     	
         menu.slideToggle('slow', function() {
         	hamburger.hide();
@@ -73,7 +86,10 @@ function menuToggle() {
             if(!isLogged){
     			login.hide();
     			register.hide();
-    		} else logout.hide();
+    		} else {
+    			logout.hide();
+    			profile.hide();
+    		}
             hamburger.show();
         })
     });
