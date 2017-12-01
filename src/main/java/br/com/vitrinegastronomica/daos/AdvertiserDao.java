@@ -40,29 +40,8 @@ public class AdvertiserDao {
 		em.persist(advertiser);
 	}
 	
-	public List<Advertiser> findById(Advertiser a){
-		System.err.println("LIST DAO");
-		
-		TypedQuery<Advertiser> query = em.createQuery("SELECT a FROM Advertiser a WHERE a.id = 1" , Advertiser.class);
-		//query.setParameter("pId", a.getId());
-		
-		try{
-			List<Advertiser> list = query.getResultList();
-			
-			System.out.println("ENCONTROUUUUU: " + list.get(0).getName());
-			System.out.println("ENCONTROUUUUU222: " + list);
-			return list;
-			
-		}catch(Exception e){
-			e.printStackTrace();
-			
-			System.out.println("ERROOOOOOOO ");
-			return null;
-		}
-	}
-	
-	public Advertiser findId(long id){
-		return em.find(Advertiser.class, id);
+	public Advertiser findById(Advertiser a){
+		return em.find(Advertiser.class, a.getId());
 	}
 	
 	

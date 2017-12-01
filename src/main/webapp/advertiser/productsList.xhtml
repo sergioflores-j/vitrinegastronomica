@@ -1,31 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Meus Produtos - Vitrine Gastronômica</title>
-	<meta charset="utf-8"/>
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<!-- Style -->
 	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
-</h:head> 
-<body> 
+</h:head>
+<body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headers/header.xhtml"/>
+		<ui:include src="/templates/headers/header.xhtml" />
 	</ui:insert>
-	
-	<div class="container-fluid" style="margin-top: 20px !important">
+
+	<div class="container-fluid content" style="margin-top: 20px !important">
 		<p:messages />
+		<div class="row">
+			<ui:repeat value="#{productListBean.listAllProducts()}" var="product">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-5">
+					<div class="card-group">
+						<div class="card">
+							<img class="card-img-top img-fluid" src="#{request.contextPath}/files/#{product.imgPath}" alt="#{product.title}" title="#{product.title}" />
+							<div class="card-body">
+								<div class="card-title"><h3>#{product.title}</h3></div>
+								<div class="card-text">
+									<p>#{product.description}</p>
+									<p>R$ #{product.price}</p>
+									<h:outputText value="#{product.created_at.time}" class="text-danger">
+										<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+									</h:outputText>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</ui:repeat>
+		</div>
+		<div class="push"></div>
 	</div>
-	
-    <ui:insert name="footer">
+
+	<ui:insert name="footer">
 		<ui:include src="/templates/footers/footer.xhtml" />
 	</ui:insert>
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body> 
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
 </html>

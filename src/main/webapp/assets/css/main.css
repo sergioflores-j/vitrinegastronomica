@@ -20,6 +20,11 @@ body {
   height: 50px;
 }
 
+.img-fluid{
+  max-width: 100%;
+  height: auto;
+}
+
 .hide-mobile {
   @media screen and (max-width: 420px) {
     display: none;
@@ -36,6 +41,10 @@ body {
 
 .no-padding{
   padding: 0px !important;
+}
+
+.padding-5 {
+  padding: 5px !important;
 }
 
 .no-margin{
@@ -151,7 +160,33 @@ body {
 .btn-default:hover {
   opacity: 1.0;
 }
+/* CARD */
+.card {
+  display: inline-block;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  height: auto;
+  margin-bottom: 5%;
+  width: 100%;
+}
 
+.card-img-top {
+  width: 100%;
+  height: 150px;
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+}
+
+.card-title {
+  margin-bottom: .75rem;
+}
+.card-body {
+  padding: 1.25rem;
+  height: auto;
+}
 
 /*TEXT*/
 
