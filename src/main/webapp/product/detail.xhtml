@@ -2,10 +2,63 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
 
-<h:head></h:head> 
+<f:metadata>
+    <f:viewParam id="id" name="id" value="#{productDetailBean.id}"/>
+    <f:viewAction action="#{productDetailBean.loadDetail()}"/>
+</f:metadata>
+
+<h:head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8"/>
+	<title>#{productDetailBean.product.title} - Vitrine Gastrononomica</title>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<!-- Style -->
+	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
+</h:head> 
 <body> 
-	<h1>AQUI VAI O DETALHE =)</h1>
+	<ui:insert name="header">
+		<ui:include src="/templates/headers/header.xhtml"/>
+	</ui:insert>
+	
+	<div class="container-fluid content" style="margin-top: 20px !important;">
+		<div class="row">
+			<p:messages />
+		</div>
+		<div class="page-header"><h1>#{productDetailBean.product.title}</h1></div>
+		<div class="row">
+			<div class="col-auto">
+				<div class="col-md-6 col-sm-4">
+					<img class="img-fluid" src="#{request.contextPath}/files/#{productDetailBean.product.imgPath}" alt="#{productDetailBean.product.title}" title="#{productDetailBean.product.title}" />
+				</div>
+				<div class="col-md-6 col-sm-8">
+					<div class="form-group">
+						<p>#{productDetailBean.product.description}</p>
+						<p>R$ #{productDetailBean.product.price}</p>
+						<ui:repeat value="#{productDetailBean.product.category}" var="category">
+							<p class="badge">#{category.title}</p> 
+						</ui:repeat>
+						<p>
+							<h:outputText value="#{productDetailBean.product.created_at.time}" class="text-danger form-group">
+								<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
+							</h:outputText>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="push"></div>
+	</div>
+	
+	<ui:insert name="footer">
+		<ui:include src="/templates/footers/footer.xhtml" />
+	</ui:insert>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body> 
 </html>

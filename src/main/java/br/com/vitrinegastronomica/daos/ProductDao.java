@@ -18,15 +18,34 @@ public class ProductDao {
 		String jpql = "select distinct(p) from Product p join fetch p.category";
 		return em.createQuery(jpql, Product.class).getResultList();
 	}
-	
-	public List<Product> findByAdvertiserId(Advertiser a){
+
+	public List<Product> findByAdvertiserId(Advertiser a) {
 		TypedQuery<Product> query = em.createQuery(
-				"SELECT distinct(p) FROM Product p JOIN FETCH p.category WHERE advertiser_id = :aId", Product.class);
+				"SELECT distinct(p) FROM Product p JOIN FETCH p.category WHERE p.advertiser.id = :aId", Product.class);
 		query.setParameter("aId", a.getId());
-		
+
 		List<Product> result = query.getResultList();
+
+		if (result != null)
+			return result;
 		
-		return result;
+		return null;
+
+	}
+	
+	public Product findById(Long id) {
+		System.out.println("TESTE ==> " + id);
+		TypedQuery<Product> query = em.createQuery(
+				"SELECT distinct(p) FROM Product p JOIN FETCH p.category WHERE p.id = :pId", Product.class);
+		query.setParameter("pId", id);
+
+		Product result = query.getSingleResult();
+
+		if (result != null)
+			return result;
+		
+		return null;
+
 	}
 
 	public void save(Product product) {

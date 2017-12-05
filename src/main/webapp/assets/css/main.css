@@ -7,6 +7,10 @@ body {
   height: 100% !important;
 }
 
+.page-header {
+  border-bottom: 1px solid #fff !important;
+}
+
 .container {
   max-width: 950px;
 }
@@ -14,6 +18,11 @@ body {
 .content {
   min-height: calc(100vh - 90px);
   margin: 0 auto -50px;
+}
+
+.badge {
+  clear: both;
+  background-color: #9b1717 !important;
 }
 
 .push {
@@ -411,5 +420,22 @@ table > tbody > tr> td.grid{
 /* class column profile 	*/
 .columnClass{
 	width: 100px;
-	
 }
+
+/* image carousel class */
+.carousel-inner{
+	background-color: #f2d699;
+	width: 100%;
+	margin: 0px !important;
+}
+
+.carousel-inner > .item > a > img{
+	width: 60%;
+	height: 500px;
+	margin: auto;
+}
+
+#img-active{
+	width: 100%;
+}
+

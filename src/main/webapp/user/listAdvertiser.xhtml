@@ -4,45 +4,35 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html" 
       xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions">
+      xmlns:pe="http://primefaces.org/ui/extensions"> 
 
 <h:head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Anunciantes - Vitrine Gastronômmica</title>
 	<meta charset="utf-8"/>
-	<title>Produtos de Anunciantes - Vitrine Gastronômica</title>
-	
-	<!-- Bootstrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<!-- Style -->
 	<link rel="stylesheet" href="#{request.contextPath}/assets/css/main.css" />
 </h:head> 
-<body> 
+<body>
 	<ui:insert name="header">
-		<ui:include src="/templates/headers/header.xhtml"/>
+		<ui:include src="/templates/headers/header.xhtml" />
 	</ui:insert>
 	
 	<div class="container-fluid content" style="margin-top: 20px !important;">
 		<div class="row">
-			<p:messages />
+			<p:messages/>
 		</div>
 		<div class="row">
 			<div class="card-group">
-				<ui:repeat value="#{productListBean.listAllProducts()}" var="product">
+				<ui:repeat value="#{advertiserListBean.listAll()}" var="advertiser">
 					<div class="col-md-3 col-sm-6 col-xs-12">
 						<div class="card">
-							<img class="card-img-top img-fluid" src="#{request.contextPath}/files/#{product.imgPath}" alt="#{product.title}" title="#{product.title}" />
+							<img class="card-img-top img-fluid" src="#{request.contextPath}/files/#{advertiser.imgPath}" alt="#{advertiser.name}" title="#{advertiser.name}" />
 							<div class="card-body">
-								<div class="card-title"><h3>#{product.title}</h3></div>
+								<div class="card-title">#{advertiser.name}</div>
 								<div class="card-text">
-									<p>#{product.description}</p>
-									<ui:repeat value="#{product.category}" var="category">
-										<p class="badge">#{category.title}</p> 
-									</ui:repeat>
-									<p>
-										<h:outputText value="#{product.created_at.time}" class="text-danger form-group">
-											<f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss" />
-										</h:outputText>
-									</p>
+									<p>#{advertiser.description}</p>
+									<p>#{advertiser.city}, #{advertiser.state}, #{advertiser.country}</p>
 								</div>
 								<div class="form-group text-right">
 									<a href="#{request.contextPath}/product/detail.xhtml?id=#{product.id}" class="btn btn-primary">
@@ -57,11 +47,11 @@
 		</div>
 		<div class="push"></div>
 	</div>
-	
+
 	<ui:insert name="footer">
 		<ui:include src="/templates/footers/footer.xhtml" />
 	</ui:insert>
-	
+
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body> 
 </html>

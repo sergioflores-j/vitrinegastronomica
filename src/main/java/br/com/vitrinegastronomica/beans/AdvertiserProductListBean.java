@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
@@ -24,8 +26,6 @@ public class AdvertiserProductListBean {
 
 	public Advertiser getAdvertiser() {
 		Advertiser adv = (Advertiser) context.getExternalContext().getSessionMap().get("advertiser");
-		System.out.println("ADV:" + adv);
-
 		if (adv != null) {
 			return adv;
 		} else {
@@ -35,7 +35,15 @@ public class AdvertiserProductListBean {
 
 	public List<Product> getProducts() {
 		Advertiser a = this.getAdvertiser();
-		return dao.findByAdvertiserId(a);
+		List<Product> result = dao.findByAdvertiserId(a);
+		
+		if (result.isEmpty()) {
+			context.getExternalContext().getFlash().setKeepMessages(true);
+			context.addMessage(null, new FacesMessage("Você ainda não registrou nenhum produto!"));
+			return null;
+		}
+		
+		return result;
 	}
 
 }
